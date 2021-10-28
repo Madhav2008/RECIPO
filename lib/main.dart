@@ -11,36 +11,35 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<AuthService>(
-          create: (_) => AuthService(),
-        )
-      ],
-      child: MaterialApp(
+    // return MultiProvider(
+    //   providers: [
+    //     Provider<AuthService>(
+    //       create: (_) => AuthService(),
+    //     )
+    //   ],
+       MaterialApp(
         debugShowCheckedModeBanner: false,
         // theme: ThemeData(brightness: Brightness.dark),
         title: 'Maaga',
         initialRoute: '/',
         routes: {
-          '/': (context) => SplashScreen(),
+          '/': (context) => BottomNavigation(),
           '/second': (context) => LoginScreen(),
           '/navigationScreen': (context) => BottomNavigation(),
           '/searchScreen': (context) => SearchScreen(),
-          '/DetailScreen': (context) =>
-              DetailScreen("assets/images/Register.png"),
+          '/DetailScreen': (context) => DetailScreen("assets/images/Register.png"),
           '/forgetScreen': (context) => ForgetScreen(),
           '/registerScreen': (context) => RegisterScreen(),
         },
-      ),
-    );
+      );
+    // );
   }
 }
