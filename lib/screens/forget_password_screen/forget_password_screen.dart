@@ -75,15 +75,21 @@ class _LoginScreenState extends State<ForgetScreen> {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 55),
-              TextInputOpacity(
-                icon: Icon(
-                  Icons.mail,
-                  color: Colors.white,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:20),
+                child: TextInputOpacity(
+                  icon: Icon(
+                    Icons.mail,
+                    color: Colors.white,
+                  ),
+                  title: 'Email',
                 ),
-                title: 'Email',
               ),
               SizedBox(height: 20),
-              BigBlueButton(title: 'Send'),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal:20),
+                child: BigBlueButton(title: 'Send'),
+              ),
             ],
           ),
         ),

@@ -8,6 +8,7 @@ class TextInputOpacity extends StatelessWidget {
   }) : super(key: key);
   final String title;
   final Icon icon;
+
   @override
   Widget build(BuildContext context) {
     return Container(

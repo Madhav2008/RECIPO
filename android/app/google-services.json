@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "548047149225",
+    "project_id": "maaga-f5344",
+    "storage_bucket": "maaga-f5344.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548047149225:android:96887d9a38ca8851e971b8",
+        "android_client_info": {
+          "package_name": "com.Madhav.Maaga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548047149225-vl3c0u7q5pri3vch0b24aosn9jqdcuaf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8liu__l2QGgAXEVIsxDWGsstwPVTIpag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548047149225-vl3c0u7q5pri3vch0b24aosn9jqdcuaf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

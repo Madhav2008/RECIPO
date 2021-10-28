@@ -1,20 +1,21 @@
+import 'package:Foodybite/auth/auth_services.dart';
+import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
 import 'package:Foodybite/widgets/big_blue_button.dart';
 import 'package:Foodybite/widgets/text_button.dart';
-import 'package:Foodybite/widgets/textinput_opacity.dart';
 import 'package:flutter/material.dart';
-import 'package:keyboard_avoider/keyboard_avoider.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key key}) : super(key: key);
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context);
     return Scaffold(
       backgroundColor: Colors.transparent,
-      resizeToAvoidBottomInset: false,
-      // resizeToAvoidBottomPadding: false,
-      body: KeyboardAvoider(
-        autoScroll: true,
+      body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -61,64 +62,94 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(
                   height: 55,
                 ),
-                Stack(
-                  children: [
-                    CircleAvatar(
-                      radius: 80.0,
-                      backgroundColor: Colors.white12,
-                      child: Icon(
-                        Icons.supervised_user_circle_outlined,
-                        size: 45,
-                        color: Colors.white,
-                      ),
+                TextField(
+                  controller: nameController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 0.0),
                     ),
-                    Positioned(
-                      top: 120,
-                      left: 110,
-                      child: CircleIconButton(
-                        icon: Icon(
-                          Icons.arrow_upward_rounded,
-                          size: 18,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(height: 110),
-                TextInputOpacity(
-                  icon: Icon(
-                    Icons.supervised_user_circle_outlined,
-                    color: Colors.white,
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.transparent, width: 0.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.supervised_user_circle_outlined,
+                      color: Colors.white,
+                    ),
+                    hintText: 'Name',
+                    hintStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                    fillColor: Colors.white,
+                    focusColor: Colors.white,
                   ),
-                  title: 'Name',
                 ),
                 SizedBox(height: 20),
-                TextInputOpacity(
-                  icon: Icon(
-                    Icons.mail,
-                    color: Colors.white,
+                TextField(
+                  controller: emailController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 0.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.transparent, width: 0.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.mail,
+                      color: Colors.white,
+                    ),
+                    hintText: 'Email',
+                    hintStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                    fillColor: Colors.white,
+                    focusColor: Colors.white,
                   ),
-                  title: 'Email',
                 ),
                 SizedBox(height: 20),
-                TextInputOpacity(
-                  icon: Icon(
-                    Icons.lock,
-                    color: Colors.white,
+                TextField(
+                  obscureText: true,
+                  controller: passwordController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 0.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Colors.transparent, width: 0.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Colors.white,
+                    ),
+                    hintText: 'Password',
+                    hintStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                    fillColor: Colors.white,
+                    focusColor: Colors.white,
                   ),
-                  title: 'Password',
-                ),
-                SizedBox(height: 20),
-                TextInputOpacity(
-                  icon: Icon(
-                    Icons.lock,
-                    color: Colors.white,
-                  ),
-                  title: 'Confirm Password',
                 ),
                 SizedBox(height: 55),
-                BigBlueButton(title: 'Register'),
+                BigBlueButton(
+                  title: 'Register',
+                  onPress: () async {
+                    final user =
+                        await authService.createUserWithEmailAndPassword(
+                            emailController.text, passwordController.text);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BottomNavigation()));
+                  },
+                ),
                 SizedBox(height: 55),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -156,6 +187,7 @@ class CircleIconButton extends StatelessWidget {
   }) : super(key: key);
   final Icon icon;
   final Function onPress;
+
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,7 +1,9 @@
+import 'package:Foodybite/auth/auth_services.dart';
+import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
 import 'package:Foodybite/widgets/big_blue_button.dart';
-import 'package:Foodybite/widgets/textinput_opacity.dart';
 import 'package:Foodybite/widgets/text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -12,8 +14,13 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _visible = false;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context);
     Future.delayed(const Duration(milliseconds: 1000), () {
       setState(() {
         _visible = true;
@@ -42,6 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
               reverse: true,
               child: Column(
                 children: [
+                  SizedBox(height: 100),
                   Text(
                     'Maaga',
                     style: TextStyle(
@@ -50,29 +58,70 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 200),
-                  TextInputOpacity(
-                    icon: Icon(
-                      Icons.mail,
-                      color: Colors.white,
+                  SizedBox(height: 100),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      controller: emailController,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Colors.transparent, width: 0.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.transparent, width: 0.0),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.mail,
+                          color: Colors.white,
+                        ),
+                        hintText: 'Email',
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                        fillColor: Colors.white,
+                        focusColor: Colors.white,
+                      ),
                     ),
-                    title: 'Email',
                   ),
                   SizedBox(
                     height: 50,
                   ),
-                  TextInputOpacity(
-                    icon: Icon(
-                      Icons.lock,
-                      color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      obscureText: true,
+                      controller: passwordController,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Colors.transparent, width: 0.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.transparent, width: 0.0),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: Colors.white,
+                        ),
+                        hintText: 'Password',
+                        hintStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                        fillColor: Colors.white,
+                        focusColor: Colors.white,
+                      ),
                     ),
-                    title: 'Password',
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 220),
+                    padding: const EdgeInsets.only(left: 180),
                     child: TextSimpleButton(
                       title: 'Forget password?',
                       colors: Colors.white,
@@ -84,11 +133,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 30,
                   ),
-                  BigBlueButton(
-                    title: 'Login',
-                    onPress: () {
-                      Navigator.pushNamed(context, '/introScreen');
-                    },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: BigBlueButton(
+                      title: 'Login',
+                      onPress: ()async{
+                        authService.signInWithEmailAndPassword(emailController.text,passwordController.text);
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigation()));
+                      },
+                    ),
                   ),
                   SizedBox(
                     height: 20,
