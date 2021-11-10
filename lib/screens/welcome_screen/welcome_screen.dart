@@ -1,3 +1,4 @@
+import 'package:Foodybite/screens/landing_screen/landing_screen.dart';
 import 'package:Foodybite/screens/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
@@ -12,7 +13,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   SwiperController _controller = SwiperController();
   int _currentIndex = 0;
-  final List<String> introImage = ["https://raw.githubusercontent.com/MortezaBozorgzade/Flutter-Ui-E-FoodApp/master/assets/images/ill1.png", "https://raw.githubusercontent.com/MortezaBozorgzade/Flutter-Ui-E-FoodApp/master/assets/images/ill2.png", "https://raw.githubusercontent.com/MortezaBozorgzade/Flutter-Ui-E-FoodApp/master/assets/images/ill3.png"];
+  final List<String> introImage = ["../assets/try1.png", "../assets/try2.png", "../assets/try3.png"];
   final List<String> titles = [
     "Learn",
     "Cook",
@@ -87,7 +88,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 if (_currentIndex != 2)
                   _controller.next();
                 else
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LandingPage()));
               },
             ),
           ),

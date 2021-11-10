@@ -16,7 +16,7 @@ class Wrapper extends StatelessWidget {
       builder: (_, AsyncSnapshot<User> snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           final User user = snapshot.data;
-          return user == null ? SplashScreen() : BottomNavigation();
+          return user == null ? SplashScreen() : Navigation();
         } else {
           return Scaffold(
               body: Center(

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:Foodybite/screens/landing_screen/landing_screen.dart';
 import 'package:Foodybite/screens/splash_screen/Zig_Zag_Zipper.dart';
 import 'package:Foodybite/screens/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';

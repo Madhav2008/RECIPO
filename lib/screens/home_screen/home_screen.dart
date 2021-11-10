@@ -1,269 +1,259 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_text/gradient_text.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Text(
-            "HomeScreen"
-        )
-    );
+    return Scaffold(
+        body: Column(
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(top: 30, left: 10, right: 10),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: GradientText(
+              "Maaga",
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(255, 138, 120, 1),
+                  Color.fromRGBO(255, 63, 111, 1),
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              style: TextStyle(
+                fontSize: 35,
+                fontFamily: 'MuseoModerno',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            showAboutDialog(
+              context: context,
+              applicationName: 'Maaga',
+              applicationVersion: 'by Madhav Arora\n\nV1.0',
+            );
+          },
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Icon(
+              Icons.info_outline,
+            ),
+          ),
+        ),
+      ],
+    ));
   }
 }
 
-// import 'package:Foodybite/screens/category_screen/category_screen.dart';
-// import 'package:Foodybite/screens/home_screen/RecipeList.dart';
-// import 'package:Foodybite/screens/home_screen/recipe.dart';
-// import 'package:Foodybite/screens/post_recipe_screen/post_recipe_screen.dart';
-// import 'package:Foodybite/screens/profile_screen/profile_screen.dart';
-// import 'package:Foodybite/screens/search_screen/search_screen.dart';
 // import 'package:flutter/cupertino.dart';
-// import 'package:http/http.dart' as http;
 // import 'package:flutter/material.dart';
-// import 'dart:convert';
-// import 'package:shared_preferences/shared_preferences.dart';
-
+// import 'package:provider/provider.dart';
+// import 'package:gradient_text/gradient_text.dart';
+//
 // class HomeScreen extends StatefulWidget {
 //   @override
-//   State<StatefulWidget> createState() => _HomeScreenState();
+//   _HomeScreenState createState() => _HomeScreenState();
 // }
-
-// class _HomeScreenState extends State<HomeScreen> with RouteAware {
-//   List<Recipe> items = [];
-//   int currentTab = 0;
-//   final List<Widget> screens = [
-//     PostRecipeScreen(),
-//     CategoryScreen(),
-//     SearchScreen(),
-//     ProfileScreen(),
-//   ];
-
-//   final PageStorageBucket bucket = PageStorageBucket();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       // appBar: AppBar(title: Text('Recipes')),
-//       body: IndexedStack(
-//         index: currentTab,
-//         children: screens,
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () {
-//           Navigator.push(
-//             context,
-//             MaterialPageRoute(
-//                 builder: (context) => PostRecipeScreen()
-//             ),
-//           );
-//         },
-//         child: Icon(Icons.add),
-//         backgroundColor: Theme.of(context).accentColor,
-//       ),
-//       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-//       bottomNavigationBar:
-//       /* BottomNavigationBar(
-//         currentIndex: currentTab,
-//         onTap: (index) {
-//           setState(() {
-//             currentTab = index;
-//           });
-//         }, // this will be set when a new tab is tapped
-//         items: [
-//           BottomNavigationBarItem(
-//             icon: new Icon(Icons.home),
-//             title: new Text('Home'),
-
-//           ),
-//           BottomNavigationBarItem(
-//             icon: new Icon(Icons.mail),
-//             title: new Text('Messages'),
-//           ),
-//           BottomNavigationBarItem(
-//               icon: Icon(Icons.person), title: Text('Profile'))
-//         ],
-//       ) */
-//       BottomAppBar(
-//         clipBehavior: Clip.antiAlias,
-//         shape: CircularNotchedRectangle(),
-//         child: Container(
-//           height: 60,
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: buildChildBottomBar(),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-
+//
+// class _HomeScreenState extends State<HomeScreen> {
 //   @override
 //   void initState() {
+//     FoodNotifier foodNotifier =
+//     Provider.of<FoodNotifier>(context, listen: false);
+//     getFoods(foodNotifier);
 //     super.initState();
-//     getRecipes().then((onValue) {
-//       setState(() {
-//         items = onValue.recipeList;
-//       });
-//     });
 //   }
-
+//
 //   @override
-//   void dispose() {
-//     super.dispose();
-//   }
-
-//   @override
-//   void didChangeDependencies() {
-//     super.didChangeDependencies();
-//   }
-
-//   // Called when the top route has been popped off, and the current route shows up.
-//   void didPopNext() {
-//   }
-
-//   // Called when the current route has been pushed.
-//   void didPush() {
-//   }
-
-//   // Called when the current route has been popped off.
-//   void didPop() {
-//   }
-
-//   // Called when a new route has been pushed, and the current route is no longer visible.
-//   void didPushNext() {
-//   }
-
-//   Future<RecipeList> getRecipes() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     final token = prefs.getString('token') ?? '';
-//      // url = 'http://35.160.197.175:3006/api/v1/recipe/feeds';
-//     Map<String, String> headers = {
-//       "Content-type": "application/json",
-//       "Authorization": token
-//     };
-
-//     // final response = await http.get(url, headers: headers);
-
-//     // if (response.statusCode == 200) {
-//     //   debugPrint("response: ${response.body}");
-//     //   return RecipeList.fromJson(json.decode(response.body));
-//     // } else {
-//     //   throw Exception('Failed to load album');
-//     // }
-//   }
-
-//   buildChildBottomBar() {
-//     return <Widget>[
-//       Row(
+//   Widget build(BuildContext context) {
+//     AuthNotifier authNotifier =
+//     Provider.of<AuthNotifier>(context, listen: false);
+//     FoodNotifier foodNotifier = Provider.of<FoodNotifier>(context);
+//     return Scaffold(
+//       body: Column(
 //         children: <Widget>[
-//           MaterialButton(
-//             minWidth: 40,
-//             onPressed: () {
-//               setState(() {
-//                 if (currentTab != 0) {
-//                   currentTab = 0;
-//                 }
-//               });
-//             },
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
+//           Padding(
+//             padding: EdgeInsets.only(top: 30, left: 10, right: 10),
+//             child: authNotifier.user != null
+//                 ? Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //               children: <Widget>[
-//                 Icon(Icons.rss_feed,
-//                     color: currentTab == 0
-//                         ? Theme.of(context).accentColor
-//                         : Colors.grey),
-//                 Text(
-//                   'Feed',
-//                   style: TextStyle(
-//                       color: currentTab == 0
-//                           ? Theme.of(context).accentColor
-//                           : Colors.grey),
-//                 )
+//                 GestureDetector(
+//                   onTap: () {
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                         builder: (BuildContext context) {
+//                           return NavigationBarPage(selectedIndex: 0);
+//                         },
+//                       ),
+//                     );
+//                   },
+//                   child: GradientText(
+//                     "FoodLab",
+//                     gradient: LinearGradient(
+//                       colors: [
+//                         Color.fromRGBO(255, 138, 120, 1),
+//                         Color.fromRGBO(255, 63, 111, 1),
+//                       ],
+//                       begin: Alignment.centerLeft,
+//                       end: Alignment.centerRight,
+//                     ),
+//                     style: TextStyle(
+//                       fontSize: 30,
+//                       fontFamily: 'MuseoModerno',
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                 ),
+//                 GestureDetector(
+//                   onTap: () {
+//                     showAboutDialog(
+//                       context: context,
+//                       applicationName: 'FoodLab',
+//                       applicationVersion: 'by Shivani Singh\n\nV1.0',
+//                     );
+//                   },
+//                   child: Icon(Icons.info_outline),
+//                 ),
 //               ],
+//             )
+//                 : Text(
+//               'Welcome',
+//               style: TextStyle(
+//                 fontSize: 17,
+//               ),
 //             ),
 //           ),
-//           MaterialButton(
-//             minWidth: 40,
-//             onPressed: () {
-//               setState(() {
-//                 if (currentTab != 1) {
-//                   currentTab = 1;
-//                 }
-//               });
-//             },
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: <Widget>[
-//                 Icon(Icons.favorite,
-//                     color: currentTab == 1
-//                         ? Theme.of(context).accentColor
-//                         : Colors.grey),
-//                 Text(
-//                   'Favorites',
-//                   style: TextStyle(
-//                       color: currentTab == 1
-//                           ? Theme.of(context).accentColor
-//                           : Colors.grey),
-//                 )
-//               ],
-//             ),
+//           SizedBox(
+//             height: 20,
 //           ),
-//           MaterialButton(
-//             minWidth: 40,
-//             onPressed: () {
-//               setState(() {
-//                 if (currentTab != 2) {
-//                   currentTab = 2;
-//                 }
-//               });
-//             },
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: <Widget>[
-//                 Icon(Icons.account_circle,
-//                     color: currentTab == 2
-//                         ? Theme.of(context).accentColor
-//                         : Colors.grey),
-//                 Text(
-//                   'Profile',
-//                   style: TextStyle(
-//                       color: currentTab == 2
-//                           ? Theme.of(context).accentColor
-//                           : Colors.grey),
-//                 )
-//               ],
+//           foodNotifier.foodList.length != 0
+//               ? Expanded(
+//             child: ListView.builder(
+//               shrinkWrap: true,
+//               physics: BouncingScrollPhysics(),
+//               itemCount: foodNotifier.foodList.length,
+//               itemBuilder: (context, index) {
+//                 return Padding(
+//                   padding: const EdgeInsets.symmetric(horizontal: 10),
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: <Widget>[
+//                       Row(
+//                         children: <Widget>[
+//                           foodNotifier.foodList[index]
+//                               .profilePictureOfUser !=
+//                               null
+//                               ? CircleAvatar(
+//                             radius: 24.0,
+//                             backgroundImage: NetworkImage(
+//                                 foodNotifier.foodList[index]
+//                                     .profilePictureOfUser),
+//                             backgroundColor: Colors.transparent,
+//                           )
+//                               : CircleAvatar(
+//                             radius: 24.0,
+//                             child: Icon(
+//                               Icons.person,
+//                               color: Colors.grey,
+//                             ),
+//                             backgroundColor: Colors.transparent,
+//                           ),
+//                           Container(
+//                             padding: EdgeInsets.only(bottom: 5, left: 10),
+//                             child: Text(
+//                               foodNotifier.foodList[index].userName,
+//                               style: TextStyle(
+//                                 fontWeight: FontWeight.bold,
+//                               ),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                       SizedBox(
+//                         height: 10,
+//                       ),
+//                       ClipRRect(
+//                         borderRadius: BorderRadius.circular(5),
+//                         child: Container(
+//                           height:
+//                           MediaQuery.of(context).size.height * 0.4,
+//                           child: foodNotifier.foodList[index].img != null
+//                               ? GestureDetector(
+//                             child: Container(
+//                               width:
+//                               MediaQuery.of(context).size.width,
+//                               child: Image.network(
+//                                 foodNotifier.foodList[index].img,
+//                                 fit: BoxFit.cover,
+//                               ),
+//                             ),
+//                             onTap: () {
+//                               Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                   builder: (BuildContext context) {
+//                                     return FoodDetailPage(
+//                                       imgUrl: foodNotifier
+//                                           .foodList[index].img,
+//                                       imageName: foodNotifier
+//                                           .foodList[index].name,
+//                                       imageCaption: foodNotifier
+//                                           .foodList[index].caption,
+//                                       userName: foodNotifier
+//                                           .foodList[index].userName,
+//                                       createdTimeOfPost:
+//                                       foodNotifier
+//                                           .foodList[index]
+//                                           .createdAt
+//                                           .toDate(),
+//                                     );
+//                                   },
+//                                 ),
+//                               );
+//                             },
+//                           )
+//                               : CircularProgressIndicator(
+//                             backgroundColor:
+//                             Color.fromRGBO(255, 63, 111, 1),
+//                           ),
+//                         ),
+//                       ),
+//                       SizedBox(
+//                         height: 20,
+//                       ),
+//                       SizedBox(
+//                         height: 10,
+//                       ),
+//                     ],
+//                   ),
+//                 );
+//               },
 //             ),
-//           ),
-//           MaterialButton(
-//             minWidth: 40,
-//             onPressed: () {
-//               setState(() {
-//                 if (currentTab != 3) {
-//                   currentTab = 3;
-//                 }
-//               });
-//             },
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: <Widget>[
-//                 Icon(Icons.settings,
-//                     color: currentTab == 3
-//                         ? Theme.of(context).accentColor
-//                         : Colors.grey),
-//                 Text(
-//                   'Settings',
-//                   style: TextStyle(
-//                       color: currentTab == 3
-//                           ? Theme.of(context).accentColor
-//                           : Colors.grey),
-//                 )
-//               ],
-//             ),
+//           )
+//               : Column(
+//             children: <Widget>[
+//               CircularProgressIndicator(
+//                 backgroundColor: Color.fromRGBO(255, 63, 111, 1),
+//                 valueColor: AlwaysStoppedAnimation<Color>(
+//                   Color.fromRGBO(255, 138, 120, 1),
+//                 ),
+//               ),
+//               SizedBox(
+//                 height: 20,
+//               ),
+//               Text('Loading'),
+//             ],
 //           ),
 //         ],
-//       )
-//     ];
+//       ),
+//     );
 //   }
 // }

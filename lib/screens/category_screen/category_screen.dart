@@ -1,8 +1,8 @@
 import 'package:Foodybite/models/category.dart';
 import 'package:Foodybite/screens/category_screen/category_list_screen/category_list_screen.dart';
 import 'package:Foodybite/screens/category_screen/list_screen/list_screen.dart';
-import 'package:Foodybite/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_text/gradient_text.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({Key key}) : super(key: key);
@@ -11,39 +11,25 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: GradientText(
           'Category',
+          gradient: LinearGradient(
+            colors: [
+              Color.fromRGBO(255, 138, 110, 1),
+              Color.fromRGBO(255, 63, 111, 1),
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ),
           style: TextStyle(
             color: Colors.black,
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold,
           ),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => SearchScreen()
-              ));
-            },
-          )
-        ],
       ),
       body: ListView.builder(
           itemCount: category.length,
