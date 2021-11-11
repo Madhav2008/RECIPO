@@ -297,7 +297,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     title: 'Forget password?',
                     colors: Colors.white,
                     onPress: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ForgetScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgetScreen()));
                     },
                   ),
                 ),

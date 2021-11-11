@@ -7,47 +7,43 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: GradientText(
+            "Maaga",
+            gradient: LinearGradient(
+              colors: [
+                Color.fromRGBO(255, 138, 120, 1),
+                Color.fromRGBO(255, 63, 111, 1),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            style: TextStyle(
+              fontSize: 35,
+              fontFamily: 'MuseoModerno',
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                showAboutDialog(
+                  context: context,
+                  applicationName: 'Maaga',
+                  applicationVersion: 'by Madhav Arora\n\nV1.0',
+                );
+              },
+              child: Icon(
+                Icons.info_outline,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
         body: Column(
-      children: <Widget>[
-        Padding(
-          padding: EdgeInsets.only(top: 30, left: 10, right: 10),
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: GradientText(
-              "Maaga",
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromRGBO(255, 138, 120, 1),
-                  Color.fromRGBO(255, 63, 111, 1),
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-              style: TextStyle(
-                fontSize: 35,
-                fontFamily: 'MuseoModerno',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            showAboutDialog(
-              context: context,
-              applicationName: 'Maaga',
-              applicationVersion: 'by Madhav Arora\n\nV1.0',
-            );
-          },
-          child: Align(
-            alignment: Alignment.topRight,
-            child: Icon(
-              Icons.info_outline,
-            ),
-          ),
-        ),
-      ],
-    ));
+
+        ));
   }
 }
 

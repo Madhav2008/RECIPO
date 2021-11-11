@@ -1,14 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SearchScreen extends StatelessWidget {
-  // const SearchScreen({Key key}) : super(key: key);
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({Key key}) : super(key: key);
+
+  @override
+  _SearchScreenState createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
   bool isSeaching = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: !isSeaching? Text('Cooking List'):Text('Search Recipe'),
+        title: !isSeaching? Text('Search Recipe'):TextField(decoration: InputDecoration(icon:Icon(Icons.search_sharp),hintText: "Search Recipe")),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.search),
