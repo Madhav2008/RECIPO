@@ -2,22 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({Key key}) : super(key: key);
-
+  // const SearchScreen({Key key}) : super(key: key);
+  bool isSeaching = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cooking List'),
+        title: !isSeaching? Text('Cooking List'):Text('Search Recipe'),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.search),
               onPressed: () {
-                showSearch(
-                    context: context,
-                    // delegate: FeedSearchDelegate(items: items)
-                );
-              })
+                setState(() {
+                  this.isSeaching = !this.isSeaching;
+                });
+              }
+              ),
         ],
       ),
       body: Container(
