@@ -351,13 +351,16 @@ class RegisterScreen extends StatelessWidget {
                   child: BigBlueButton(
                     title: 'Register',
                     onPress: () async {
-                      final user =
                       await authService.createUserWithEmailAndPassword(
-                          emailController.text, passwordController.text);
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Navigation()));
+                          emailController.text, passwordController.text).then((value) {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Navigation()));
+                      }).catchError((error){
+                        showDialog(context: context,
+                            builder: (con) {
+                              return AlertDialog(title: Text("Error"),content: Text(error.toString()
+                              ),);
+                            } );
+                      });
                     },
                   ),
                 ),

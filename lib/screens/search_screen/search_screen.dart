@@ -14,7 +14,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: !isSeaching? Text('Search Recipe'):TextField(decoration: InputDecoration(icon:Icon(Icons.search_sharp),hintText: "Search Recipe")),
+        title: !isSeaching? Text('Search'):TextField(decoration: InputDecoration(icon:Icon(Icons.search_sharp),hintText: "Search")),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.search),

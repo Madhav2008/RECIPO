@@ -1,4 +1,3 @@
-import 'package:Foodybite/screens/landing_screen/landing_screen.dart';
 import 'package:Foodybite/screens/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
@@ -88,7 +87,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 if (_currentIndex != 2)
                   _controller.next();
                 else
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LandingPage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
               },
             ),
           ),

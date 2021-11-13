@@ -1,3 +1,4 @@
+import 'package:Foodybite/screens/like_button.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -65,6 +66,7 @@ class DetailScreen extends StatelessWidget {
                               iconSize: 30,
                               onPressed: () {},
                             )
+                            // LikeButton()
                           ],
                         ),
                         Text(

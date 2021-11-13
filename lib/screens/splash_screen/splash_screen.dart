@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:Foodybite/screens/landing_screen/landing_screen.dart';
 import 'package:Foodybite/screens/splash_screen/Zig_Zag_Zipper.dart';
 import 'package:Foodybite/screens/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   startTime() async {
-    var _duration = new Duration(seconds: 7);
+    var _duration = new Duration(seconds: 2);
     return new Timer(_duration, navigationPage);
   }
 
@@ -56,16 +55,17 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             new Center(
-              child: Text(
-                'Maaga',
-                style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                    // fontFamily: "MuseoModerno"
-                ),
-              ),
+              // child: Text(
+              //   'Maaga',
+              //   style: TextStyle(
+              //       fontSize: 50,
+              //       color: Colors.white,
+              //       fontStyle: FontStyle.italic,
+              //       fontWeight: FontWeight.bold,
+              //       // fontFamily: "MuseoModerno"
+              //   ),
+              // ),
+              child: Container(width:200,height:200,child: Image.asset('assets/images/Logo.png'))
             )
           ],
         ));

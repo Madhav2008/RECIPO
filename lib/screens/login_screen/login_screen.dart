@@ -309,8 +309,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: BigBlueButton(
                     title: 'Login',
                     onPress: () async {
-                      authService.signInWithEmailAndPassword(emailController.text,passwordController.text);
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Navigation()));
+                      authService.signInWithEmailAndPassword(emailController.text,passwordController.text).then((auth)
+                      {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Navigation()));
+                      }).catchError((error){
+                        showDialog(context: context,
+                            builder: (con) {
+                              return AlertDialog(title: Text("Error"),content: Text(error.toString()),);
+                            } );
+                      });
                     },
                   ),
                 ),
