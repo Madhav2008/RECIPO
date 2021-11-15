@@ -1,53 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:gradient_text/gradient_text.dart';
-//
-// class HomeScreen extends StatelessWidget {
-//   const HomeScreen({Key key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           backgroundColor: Colors.white,
-//           title: GradientText(
-//             "Maaga",
-//             gradient: LinearGradient(
-//               colors: [
-//                 Color.fromRGBO(255, 138, 120, 1),
-//                 Color.fromRGBO(255, 63, 111, 1),
-//               ],
-//               begin: Alignment.centerLeft,
-//               end: Alignment.centerRight,
-//             ),
-//             style: TextStyle(
-//               fontSize: 35,
-//               fontFamily: 'MuseoModerno',
-//               fontWeight: FontWeight.bold,
-//             ),
-//           ),
-//           actions: [
-//             GestureDetector(
-//               onTap: () {
-//                 showAboutDialog(
-//                   context: context,
-//                   applicationName: 'Maaga',
-//                   applicationVersion: 'by Madhav Arora\n\nV1.0',
-//                 );
-//               },
-//               child: Icon(
-//                 Icons.info_outline,
-//                 color: Colors.black,
-//               ),
-//             ),
-//           ],
-//         ),
-//         body: Column(
-//
-//         )
-//     );
-//   }
-// }
-
 import 'package:Foodybite/screens/home_screen/network_image.dart';
 import 'package:Foodybite/screens/like_button.dart';
 import 'package:flutter/material.dart';
@@ -65,8 +15,10 @@ class HomeScreen extends StatelessWidget {
             "Recipo",
             gradient: LinearGradient(
               colors: [
-                Color.fromRGBO(255, 138, 120, 1),
-                Color.fromRGBO(255, 63, 111, 1),
+                Color.fromRGBO(226, 55, 68, 0.60),
+                Color.fromRGBO(226, 55, 68, 0.80),
+                Color.fromRGBO(226, 55, 68, 1.0),
+                Colors.redAccent,
               ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
@@ -339,7 +291,7 @@ final Widget homeScreenBottom = Column(
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Text("Top ",
+          Text("Top Recommended Recipes",
               style: TextStyle(
                   color: Colors.black87,
                   fontSize: 15,

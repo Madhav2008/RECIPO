@@ -12,7 +12,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   SwiperController _controller = SwiperController();
   int _currentIndex = 0;
-  final List<String> introImage = ["assets/try1.png", "assets/try2.png", "assets/try3.png"];
+  final List<String> introImage = ["https://raw.githubusercontent.com/Madhav2008/App-Assets/main/try1.png", "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/try2.png", "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/try3.png"];
   final List<String> titles = [
     "Learn",
     "Cook",
@@ -139,7 +139,7 @@ class IntroItem extends StatelessWidget {
                 const SizedBox(height: 20.0),
                 Text(
                   subtitle,
-                  style: TextStyle(fontSize: 24.0),
+                  style: TextStyle(fontSize: 18.0),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -152,7 +152,7 @@ class IntroItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.0),
                     child: Material(
                       elevation: 4.0,
-                      child: Image.asset(
+                      child: Image.network(
                         imageUrl,
                         fit: BoxFit.cover,
                       ),

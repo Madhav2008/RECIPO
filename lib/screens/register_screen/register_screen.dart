@@ -247,15 +247,19 @@ class RegisterScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                    padding: const EdgeInsets.only(top: 40.0),
-                    child: Text(
-                      'Create Account',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white,
-                      ),
-                    )),
+                Image.network(
+                    "https://github.com/Madhav2008/App-Assets/blob/main/RecipoLogo.png?raw=true",
+                    width: 100,
+                    height: 100
+                ),
+                Text(
+                  'Recipo',
+                  style: TextStyle(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
                 SizedBox(
                   height: 30.0,
                 ),
