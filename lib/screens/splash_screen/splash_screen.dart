@@ -55,17 +55,16 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             new Center(
-              // child: Text(
-              //   'Maaga',
-              //   style: TextStyle(
-              //       fontSize: 50,
-              //       color: Colors.white,
-              //       fontStyle: FontStyle.italic,
-              //       fontWeight: FontWeight.bold,
-              //       // fontFamily: "MuseoModerno"
-              //   ),
-              // ),
-              child: Container(width:200,height:200,child: Image.asset('assets/images/Logo.png'))
+              child: Text(
+                'Recipo',
+                style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    // fontFamily: "MuseoModerno"
+                ),
+              ),
+              // child: Container(width:200, height:200, child: Image.asset('assets/images/Logo.png'))
             )
           ],
         ));

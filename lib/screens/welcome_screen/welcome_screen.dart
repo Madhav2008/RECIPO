@@ -12,7 +12,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   SwiperController _controller = SwiperController();
   int _currentIndex = 0;
-  final List<String> introImage = ["../assets/try1.png", "../assets/try2.png", "../assets/try3.png"];
+  final List<String> introImage = ["assets/try1.png", "assets/try2.png", "assets/try3.png"];
   final List<String> titles = [
     "Learn",
     "Cook",

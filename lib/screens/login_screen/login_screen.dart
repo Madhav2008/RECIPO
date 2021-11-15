@@ -51,7 +51,7 @@
 //                 children: [
 //                   SizedBox(height: 100),
 //                   Text(
-//                     'Maaga',
+//                     'Recipo',
 //                     style: TextStyle(
 //                       fontSize: 55.0,
 //                       fontWeight: FontWeight.bold,
@@ -224,9 +224,9 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Maaga',
+                  'Recipo',
                   style: TextStyle(
-                    fontSize: 55.0,
+                    fontSize: 40.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),

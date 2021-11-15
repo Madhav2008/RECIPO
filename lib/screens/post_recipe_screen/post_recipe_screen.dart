@@ -2,6 +2,7 @@ import 'package:Foodybite/screens/post_recipe_screen/button.dart';
 import 'package:Foodybite/screens/post_recipe_screen/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_text/gradient_text.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
@@ -13,7 +14,13 @@ class PostRecipeScreen extends StatefulWidget {
 class _PostRecipeState extends State<PostRecipeScreen> {
   Food food = Food();
   File _imageFile;
-  var _category = ['Italian Recipe', 'Maxican Recipe', 'Chinese Recipe', 'Arabian Recipe', 'Thai Recipe'];
+  var _category = [
+    'Italian Recipe',
+    'Maxican Recipe',
+    'Chinese Recipe',
+    'Arabian Recipe',
+    'Thai Recipe'
+  ];
   var _currentItemSelected = 'Italian Recipe';
 
   Future<void> _pickImage(ImageSource source) async {
@@ -36,8 +43,29 @@ class _PostRecipeState extends State<PostRecipeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   title: GradientText(
+      //     'Post Recipe',
+      //     gradient: LinearGradient(
+      //       colors: [
+      //         Color.fromRGBO(255, 138, 110, 1),
+      //         Color.fromRGBO(255, 63, 111, 1),
+      //       ],
+      //       begin: Alignment.centerLeft,
+      //       end: Alignment.centerRight,
+      //     ),
+      //     style: TextStyle(
+      //       color: Colors.black,
+      //       fontSize: 25.0,
+      //       fontWeight: FontWeight.bold,
+      //     ),
+      //   ),
+      //   centerTitle: true,
+      //   backgroundColor: Colors.white,
+      //   elevation: 0.0,
+      // ),
       body: Container(
-        color:Colors.white,
+        color: Colors.white,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Padding(
@@ -190,19 +218,18 @@ class _PostRecipeState extends State<PostRecipeScreen> {
                   // height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   child: DropdownButton<String>(
-                    items: _category.map((String dropDownStringItem){
-                      return DropdownMenuItem<String>(
-                        value: dropDownStringItem,
-                        child: Text(dropDownStringItem),
-                      );
-                    }).toList(),
-                    onChanged: (String _newValueSelected){
-                      setState(() {
-                        _currentItemSelected = _newValueSelected;
-                      });
-                    },
-                    value:_currentItemSelected
-                  ),
+                      items: _category.map((String dropDownStringItem) {
+                        return DropdownMenuItem<String>(
+                          value: dropDownStringItem,
+                          child: Text(dropDownStringItem),
+                        );
+                      }).toList(),
+                      onChanged: (String _newValueSelected) {
+                        setState(() {
+                          _currentItemSelected = _newValueSelected;
+                        });
+                      },
+                      value: _currentItemSelected),
                 ),
                 SizedBox(
                   height: 20,

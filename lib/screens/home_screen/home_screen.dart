@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: GradientText(
-            "Maaga",
+            "Recipo",
             gradient: LinearGradient(
               colors: [
                 Color.fromRGBO(255, 138, 120, 1),
@@ -191,12 +191,12 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 Container(
-                    width: 280,
+                    width: 320,
                     child: Text(
-                      "What Do You Want To Eat ?",
+                      "What Do You Want To Cook?",
                       style: TextStyle(
                           fontFamily: 'OpenSans',
                           fontSize: 22,
@@ -213,8 +213,7 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                     elevation: 5.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     child: TextField(
-                      controller: TextEditingController(text: locations[0]),
-                      cursorColor: Theme.of(context).primaryColor,
+                      controller: TextEditingController(text: 'Search Your Recipe'),
                       style: dropdownMenuItem,
                       decoration: InputDecoration(
                           suffixIcon: Material(
@@ -340,7 +339,7 @@ final Widget homeScreenBottom = Column(
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Text("Currently Watched Items",
+          Text("Top ",
               style: TextStyle(
                   color: Colors.black87,
                   fontSize: 15,

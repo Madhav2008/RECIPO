@@ -1,6 +1,7 @@
 import 'package:Foodybite/screens/profile_screen/tab_1.dart';
 import 'package:Foodybite/screens/profile_screen/tab_2.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_text/gradient_text.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -9,12 +10,25 @@ class ProfileScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 140),
-            child: Text('Profile', style: TextStyle(color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold)),
+          title: GradientText(
+            'Profile',
+            gradient: LinearGradient(
+              colors: [
+                Color.fromRGBO(255, 138, 110, 1),
+                Color.fromRGBO(255, 63, 111, 1),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          centerTitle: true,
           backgroundColor: Colors.transparent,
-          elevation: 0,
+          elevation: 0.0,
         ),
         backgroundColor: Colors.white,
         body: Column(

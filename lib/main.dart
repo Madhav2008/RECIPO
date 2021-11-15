@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
        child: MaterialApp(
         debugShowCheckedModeBanner: false,
         // theme: ThemeData(brightness: Brightness.dark),
-        title: 'Maaga',
+        title: 'Recipo',
         initialRoute: '/',
         routes: {
           '/': (context) => SplashScreen(),
