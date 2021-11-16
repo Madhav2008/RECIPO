@@ -55,15 +55,20 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             new Center(
-              child: Text(
-                'Recipo',
-                style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    // fontFamily: "MuseoModerno"
-                ),
-              ),
+              child: Image.network(
+                "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo2Recipo.png",
+                width: 500,
+                height: 500,
+              )
+              // child: Text(
+              //   'Recipo',
+              //   style: TextStyle(
+              //       fontSize: 50,
+              //       color: Colors.white,
+              //       fontWeight: FontWeight.bold,
+              //       // fontFamily: "MuseoModerno"
+              //   ),
+              // ),
               // child: Container(width:200, height:200, child: Image.asset('assets/images/Logo.png'))
             )
           ],
