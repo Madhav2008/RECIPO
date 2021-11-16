@@ -1,5 +1,6 @@
 import 'package:Foodybite/screens/profile_screen/tab_1.dart';
 import 'package:Foodybite/screens/profile_screen/tab_2.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
 
@@ -36,6 +37,7 @@ class ProfileScreen extends StatelessWidget {
             Container(
               height: 120,
               width: 120,
+              child: Image.asset("assets/try.png", fit: BoxFit.cover),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.grey[200],
@@ -44,14 +46,13 @@ class ProfileScreen extends StatelessWidget {
 
             // username
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(bottom:20),
               child: Text(
                 '@aroramadhav65',
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.blue, fontSize: 20),
               ),
             ),
 
-            // number of following, followers, likes
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -72,7 +73,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         Text(
                           'Following',
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                          style: TextStyle(color: Colors.blue, fontSize: 15),
                         ),
                       ],
                     ),
@@ -94,7 +95,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         Text(
                           'Followers',
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                          style: TextStyle(color: Colors.blue, fontSize: 15),
                         ),
                       ],
                     ),
@@ -117,7 +118,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         Text(
                           '  Likes  ',
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                          style: TextStyle(color: Colors.blue, fontSize: 15),
                         ),
                       ],
                     ),
@@ -142,19 +143,6 @@ class ProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5)
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  child: Container(
-                    padding: EdgeInsets.all(15),
-                    child: Icon(
-                      Icons.camera_alt,
-                      color: Colors.grey[800],
-                    ),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey.shade300),
-                        borderRadius: BorderRadius.circular(5)),
-                  ),
-                ),
                 Container(
                   padding: EdgeInsets.all(15),
                   child: Icon(
@@ -170,7 +158,7 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(height: 15),
             Text(
               '🖋 Your Bio 🖋',
-              style: TextStyle(color: Colors.grey[700]),
+              style: TextStyle(color: Colors.black),
             ),
 
             // default tab controller

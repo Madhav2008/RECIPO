@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'package:Foodybite/auth/wrapper.dart';
 import 'package:Foodybite/screens/splash_screen/Zig_Zag_Zipper.dart';
-import 'package:Foodybite/screens/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -87,12 +87,12 @@ class _SplashScreenState extends State<SplashScreen> {
     if (token.isEmpty) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        MaterialPageRoute(builder: (context) => Wrapper()),
       );
     }else{
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        MaterialPageRoute(builder: (context) => Wrapper()),
       );
     }
   }

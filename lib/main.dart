@@ -10,6 +10,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'auth/wrapper.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => SplashScreen(),
-          '/second': (context) => LoginScreen(),
+          '/loginScreen': (context) => LoginScreen(),
           '/navigationScreen': (context) => Navigation(),
           '/searchScreen': (context) => SearchScreen(),
           '/DetailScreen': (context) => DetailScreen("assets/images/Register.png"),

@@ -1,7 +1,7 @@
 import 'package:Foodybite/auth/auth_services.dart';
 import 'package:Foodybite/auth/user_model.dart';
 import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
-import 'package:Foodybite/screens/splash_screen/splash_screen.dart';
+import 'package:Foodybite/screens/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +16,7 @@ class Wrapper extends StatelessWidget {
       builder: (_, AsyncSnapshot<User> snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           final User user = snapshot.data;
-          return user == null ? SplashScreen() : Navigation();
+          return user == null ? WelcomeScreen() : Navigation();
         } else {
           return Scaffold(
               body: Center(

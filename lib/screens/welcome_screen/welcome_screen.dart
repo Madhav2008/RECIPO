@@ -112,9 +112,9 @@ class IntroItem extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.redAccent,
-            Color.fromRGBO(226, 55, 68, 0.80),
-            Color.fromRGBO(226, 55, 68, 1.0),
+            Colors.redAccent[100],
+            Colors.redAccent[200],
+
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
