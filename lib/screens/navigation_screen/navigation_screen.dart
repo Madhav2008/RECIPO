@@ -15,7 +15,7 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  final List<Widget>_tabItems = [HomeScreen(), CategoryScreen(), PostRecipeScreen(), SearchScreen(), ProfileScreen()];
+  final List<Widget>_tabItems = [HomeScreen(), PostRecipeScreen(), ProfileScreen()];
   int _page = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
@@ -31,25 +31,25 @@ class _NavigationState extends State<Navigation> {
             size: 30,
             color: (_page == 0)?Colors.redAccent:Colors.white
           ),
-          Icon(
-            Icons.category_sharp,
-            size: 30,
-            color: (_page == 1)?Colors.redAccent:Colors.white
-          ),
+          // Icon(
+          //   Icons.category_sharp,
+          //   size: 30,
+          //   color: (_page == 1)?Colors.redAccent:Colors.white
+          // ),
           Icon(
             Icons.add_box,
             size: 30,
-            color: (_page == 2)?Colors.redAccent:Colors.white
+            color: (_page == 1)?Colors.redAccent:Colors.white
           ),
-          Icon(
-            Icons.search_sharp,
-            size: 30,
-            color: (_page == 3)?Colors.redAccent:Colors.white
-          ),
+          // Icon(
+          //   Icons.search_sharp,
+          //   size: 30,
+          //   color: (_page == 3)?Colors.redAccent:Colors.white
+          // ),
           Icon(
             Icons.account_circle,
             size: 30,
-            color: (_page == 4)?Colors.redAccent:Colors.white
+            color: (_page == 2)?Colors.redAccent:Colors.white
           ),
         ],
         color: Color.fromRGBO(226, 55, 68, 0.60),

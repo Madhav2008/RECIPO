@@ -1,7 +1,9 @@
 import 'package:Foodybite/screens/home_screen/network_image.dart';
-import 'package:Foodybite/screens/like_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
+
+import 'tab_1.dart';
+import 'tab_2.dart';
 
 class HomeScreen extends StatelessWidget {
   static final String path = "lib/src/pages/travel/travel_home.dart";
@@ -9,42 +11,43 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: GradientText(
-            "Recipo",
-            gradient: LinearGradient(
-              colors: [
-                Color.fromRGBO(226, 55, 68, 0.60),
-                Color.fromRGBO(226, 55, 68, 0.80),
-                Color.fromRGBO(226, 55, 68, 1.0),
-                Colors.redAccent,
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ),
-            style: TextStyle(
-              fontSize: 35,
-              fontFamily: 'MuseoModerno',
-              fontWeight: FontWeight.bold,
-            ),
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        title: GradientText(
+          "Recipo",
+          gradient: LinearGradient(
+            colors: [
+              Colors.white,
+              Colors.white,
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
           ),
-          actions: [
-            GestureDetector(
-              onTap: () {
-                showAboutDialog(
-                  context: context,
-                  applicationName: 'Maaga',
-                  applicationVersion: 'by Madhav Arora\n\nV1.0',
-                );
-              },
+          style: TextStyle(
+            fontSize: 35,
+            fontFamily: 'MuseoModerno',
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              showAboutDialog(
+                context: context,
+                applicationName: 'Recipo',
+                applicationVersion: 'by Madhav Arora\n\nV1.0',
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10),
               child: Icon(
                 Icons.info_outline,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
       body: ListView(
         children: <Widget>[HomeScreenTop(), homeScreenBottom],
       ),
@@ -58,13 +61,10 @@ class HomeScreenTop extends StatefulWidget {
 }
 
 class _HomeScreenTopState extends State<HomeScreenTop> {
-  final TextStyle dropdownMenuLabel =
-      TextStyle(color: Colors.white, fontSize: 16);
-  final TextStyle dropdownMenuItem =
-      TextStyle(color: Colors.black, fontSize: 18);
-  List<String> locations = ['1st', '2nd'];
-  var selectedLocationIndex = 0;
-  bool isfoodSelected = true;
+  final TextStyle bigWhite = TextStyle(color: Colors.white, fontSize: 16);
+  final TextStyle bigBlack = TextStyle(color: Colors.black, fontSize: 18);
+  var selected = 0;
+  bool isRecentSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -75,13 +75,15 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
           child: Container(
             height: 350,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [
-                      Color.fromRGBO(226, 55, 68, 0.60),
-                      Color.fromRGBO(226, 55, 68, 0.80),
-                      Color.fromRGBO(226, 55, 68, 1.0),
-                      Colors.redAccent,
-                    ])),
+                gradient: LinearGradient(colors: [
+              Color.fromRGBO(226, 55, 68, 0.60),
+              Color.fromRGBO(226, 55, 68, 0.60),
+              Color.fromRGBO(226, 55, 68, 0.60),
+              Color.fromRGBO(226, 55, 68, 0.60),
+              // Color.fromRGBO(226, 55, 68, 0.80),
+              // Color.fromRGBO(226, 55, 68, 1.0),
+              // Colors.redAccent,
+            ])),
             child: Column(
               children: <Widget>[
                 SizedBox(
@@ -91,64 +93,29 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
                     children: <Widget>[
-                      // Icon(
-                      //   Icons.location_on,
-                      //   color: Colors.white,
-                      // ),
-                      // SizedBox(
-                      //   width: 16,
-                      // ),
                       PopupMenuButton(
                         onSelected: (dynamic index) {
                           setState(() {
-                            selectedLocationIndex = index;
+                            selected = index;
                           });
                         },
                         child: Row(
-                          children: <Widget>[
-                            // Text(
-                            //   locations[selectedLocationIndex],
-                            //   style: dropdownMenuLabel,
-                            // ),
-                            // Icon(
-                            //   Icons.keyboard_arrow_down,
-                            //   color: Colors.white,
-                            // )
-                          ],
+                          children: <Widget>[],
                         ),
                         itemBuilder: (BuildContext context) =>
-                            <PopupMenuItem<int>>[
-                          // PopupMenuItem(
-                            // child: Text(
-                            //   locations[0],
-                            //   style: dropdownMenuItem,
-                            // ),
-                            // value: 0,
-                          // ),
-                          // PopupMenuItem(
-                          //   child: Text(
-                          //     locations[1],
-                          //     style: dropdownMenuItem,
-                          //   ),
-                          //   value: 1,
-                          // ),
-                        ],
+                            <PopupMenuItem<int>>[],
                       ),
                       Spacer(),
-                      // Icon(
-                      //   // Icons.settings,
-                      //   // color: Colors.white,
-                      // )
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 30,
                 ),
                 Container(
-                    width: 320,
+                    width: 280,
                     child: Text(
-                      "What Do You Want To Cook?",
+                      "What Do You Want To Eat ?",
                       style: TextStyle(
                           fontFamily: 'OpenSans',
                           fontSize: 22,
@@ -165,9 +132,11 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                     elevation: 5.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     child: TextField(
-                      controller: TextEditingController(text: 'Search Your Recipe'),
-                      style: dropdownMenuItem,
+                      // controller: TextEditingController(text: locations[0]),
+                      cursorColor: Theme.of(context).primaryColor,
+                      style: bigBlack,
                       decoration: InputDecoration(
+                          hintText: 'Search Your Recipe',
                           suffixIcon: Material(
                             elevation: 2.0,
                             borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -180,7 +149,7 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                   ),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 50,
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -189,26 +158,22 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                     InkWell(
                         onTap: () {
                           setState(() {
-                            isfoodSelected = true;
+                            isRecentSelected = true;
                           });
                         },
                         child: ChoiceChip(
-                            Icons.food_bank_sharp, "Sweetdish", isfoodSelected
-                        )
-                          ),
+                            Icons.timer, "Recent", isRecentSelected)),
                     SizedBox(
                       width: 20,
                     ),
                     InkWell(
                         onTap: () {
                           setState(() {
-                            isfoodSelected = false;
+                            isRecentSelected = false;
                           });
                         },
-                        child: ChoiceChip(
-                            Icons.food_bank_sharp, "Namkeen", !isfoodSelected
-                        )
-                      ),
+                        child: ChoiceChip2(Icons.favorite_sharp, "Most Liked",
+                            !isRecentSelected)),
                   ],
                 )
               ],
@@ -223,9 +188,9 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
 class ChoiceChip extends StatefulWidget {
   final IconData icon;
   final String text;
-  final bool isfoodSelected;
+  final bool isRecentSelected;
 
-  ChoiceChip(this.icon, this.text, this.isfoodSelected);
+  ChoiceChip(this.icon, this.text, this.isRecentSelected);
 
   @override
   _ChoiceChipState createState() => _ChoiceChipState();
@@ -234,9 +199,49 @@ class ChoiceChip extends StatefulWidget {
 class _ChoiceChipState extends State<ChoiceChip> {
   @override
   Widget build(BuildContext context) {
+    // FirstTab();
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      decoration: widget.isfoodSelected
+      decoration: widget.isRecentSelected
+          ? BoxDecoration(
+              color: Colors.white.withOpacity(.15),
+              borderRadius: BorderRadius.all(Radius.circular(20)))
+          : null,
+      child: Row(
+        children: <Widget>[
+          Icon(
+            widget.icon,
+            size: 20,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 8,
+          ),
+          Text(widget.text, style: TextStyle(color: Colors.white, fontSize: 14))
+        ],
+      ),
+    );
+  }
+}
+
+class ChoiceChip2 extends StatefulWidget {
+  final IconData icon;
+  final String text;
+  final bool isRecentSelected;
+
+  ChoiceChip2(this.icon, this.text, this.isRecentSelected);
+
+  @override
+  _ChoiceChip2State createState() => _ChoiceChip2State();
+}
+
+class _ChoiceChip2State extends State<ChoiceChip2> {
+  @override
+  Widget build(BuildContext context) {
+    // FirstTab();
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      decoration: widget.isRecentSelected
           ? BoxDecoration(
               color: Colors.white.withOpacity(.15),
               borderRadius: BorderRadius.all(Radius.circular(20)))
@@ -291,7 +296,7 @@ final Widget homeScreenBottom = Column(
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Text("Top Recommended Recipes",
+          Text("Recent Recipes",
               style: TextStyle(
                   color: Colors.black87,
                   fontSize: 15,
@@ -309,6 +314,46 @@ final Widget homeScreenBottom = Column(
     Container(
       height: 210,
       child: ListView(scrollDirection: Axis.horizontal, children: cityCards),
+    ),
+    Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    ),
+    Container(
+      height: 210,
+      child: ListView(scrollDirection: Axis.vertical, children: cityCards2),
+    )
+  ],
+);
+
+final Widget homeScreenBottom2 = Column(
+  children: <Widget>[
+    Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Text("Most Liked Recipes",
+              style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700)),
+          Spacer(),
+          Builder(
+              builder: (BuildContext context) => Text(
+                    "View All",
+                    style: TextStyle(
+                        fontSize: 14, color: Theme.of(context).primaryColor),
+                  ))
+        ],
+      ),
+    ),
+    Container(
+      height: 210,
+      child: ListView(scrollDirection: Axis.horizontal, children: cityCards),
+    ),
+    Container(
+      height: 210,
+      child: ListView(scrollDirection: Axis.horizontal, children: cityCards2),
     )
   ],
 );
@@ -320,48 +365,87 @@ List<CityCard> cityCards = [
       "12 Feb",
       "10",
       "500",
-      '440'
-  ),
+      '440'),
   CityCard(
       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
       "Recipe 2",
       "12 Feb",
       "10",
       "500",
-      '440'
-  ),
+      '440'),
   CityCard(
       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
       "Recipe 3",
       "12 Feb",
       "10",
       "500",
-      '440'
-  ),
+      '440'),
   CityCard(
       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
       "Recipe 4",
       "12 Feb",
       "10",
       "500",
-      '440'
-  ),
+      '440'),
   CityCard(
       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
       "Recipe 5",
       "12 Feb",
       "10",
       "500",
-      '440'
-  ),
+      '440'),
   CityCard(
       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
       "Recipe 6",
       "12 Feb",
       "10",
       "500",
-      '440'
-  ),
+      '440'),
+];
+
+List<CityCard2> cityCards2 = [
+  CityCard2(
+      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
+      "Recipe 1",
+      "12 Feb",
+      "10",
+      "500",
+      '440'),
+  CityCard2(
+      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
+      "Recipe 2",
+      "12 Feb",
+      "10",
+      "500",
+      '440'),
+  CityCard2(
+      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
+      "Recipe 3",
+      "12 Feb",
+      "10",
+      "500",
+      '440'),
+  CityCard2(
+      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
+      "Recipe 4",
+      "12 Feb",
+      "10",
+      "500",
+      '440'),
+  CityCard2(
+      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
+      "Recipe 5",
+      "12 Feb",
+      "10",
+      "500",
+      '440'),
+  CityCard2(
+      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
+      "Recipe 6",
+      "12 Feb",
+      "10",
+      "500",
+      '440'),
 ];
 
 class CityCard extends StatelessWidget {
@@ -379,7 +463,7 @@ class CityCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              width: 160,
+              width: 165,
               height: 210,
               child: PNetworkImage(
                 imagePath,
@@ -428,7 +512,7 @@ class CityCard extends StatelessWidget {
                     ],
                   ),
                   Container(
-                      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      padding: EdgeInsets.symmetric(vertical: 2),
                       // decoration: BoxDecoration(
                       //     color: Colors.white,
                       //     shape: BoxShape.rectangle,
@@ -437,14 +521,110 @@ class CityCard extends StatelessWidget {
                       //   "$discount%",
                       //   style: TextStyle(color: Colors.black, fontSize: 14),
                       // )
-                    // child: LikeButton()
+                      // child: LikeButton()
                       child: IconButton(
                         icon: Icon(Icons.favorite_outline_sharp),
                         color: Colors.redAccent,
                         iconSize: 30,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/DetailScreen');
+                        },
+                      ))
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CityCard2 extends StatelessWidget {
+  final String imagePath, cityName, monthYear, discount, oldPrice, newPrice;
+
+  CityCard2(this.imagePath, this.cityName, this.monthYear, this.discount,
+      this.oldPrice, this.newPrice);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width-15,
+              height: 210,
+              child: PNetworkImage(
+                imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(
+              left: 0,
+              bottom: 0,
+              width: MediaQuery.of(context).size.width-15,
+              height: 60,
+              child: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [Colors.black, Colors.black12]
+                    )
+                ),
+              ),
+            ),
+            Positioned(
+              left: 10,
+              bottom: 10,
+              width: 145,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        cityName,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 1),
+                      ),
+                      Text(
+                        monthYear,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                  Container(
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                      // decoration: BoxDecoration(
+                      //     color: Colors.white,
+                      //     shape: BoxShape.rectangle,
+                      //     borderRadius: BorderRadius.all(Radius.circular(10))),
+                      // child: Text(
+                      //   "$discount%",
+                      //   style: TextStyle(color: Colors.black, fontSize: 14),
+                      // )
+                      // child: LikeButton()
+                      child: IconButton(
+                        icon: Icon(Icons.favorite_outline_sharp),
+                        color: Colors.redAccent,
+                        iconSize: 30,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/DetailScreen');
+                        },
                       )
-                  )
+                    )
                 ],
               ),
             )
