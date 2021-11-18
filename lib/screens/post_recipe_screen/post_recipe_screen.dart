@@ -36,9 +36,9 @@ class _PostRecipeState extends State<PostRecipeScreen> {
     });
   }
 
-  _save() async {
-    uploadFoodAndImages(food, _imageFile, context);
-  }
+  // _save() async {
+  //   uploadFoodAndImages(food, _imageFile, context);
+  // }
 
   @override
   Widget build(BuildContext context) {
