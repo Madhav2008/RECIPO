@@ -1,6 +1,4 @@
-import 'package:Foodybite/widgets/big_blue_button.dart';
-import 'package:Foodybite/widgets/textinput_opacity.dart';
-
+import 'package:Foodybite/screens/login_screen/button.dart';
 import 'package:flutter/material.dart';
 
 class ForgetScreen extends StatefulWidget {
@@ -21,9 +19,10 @@ class _LoginScreenState extends State<ForgetScreen> {
     });
     return Scaffold(
       backgroundColor: Colors.transparent,
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       // resizeToAvoidBottomPadding: false,
-      body: Container(
+      body: SingleChildScrollView(
+        child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -45,7 +44,7 @@ class _LoginScreenState extends State<ForgetScreen> {
                     IconButton(
                       icon: Icon(
                         Icons.arrow_back,
-                        size: 35.0,
+                        size: 30.0,
                         color: Colors.white,
                       ),
                       onPressed: () {
@@ -53,7 +52,7 @@ class _LoginScreenState extends State<ForgetScreen> {
                       },
                     ),
                     SizedBox(
-                      width: 85.0,
+                      width: 45.0,
                     ),
                     Text(
                       'Forget Password',
@@ -65,7 +64,7 @@ class _LoginScreenState extends State<ForgetScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 250),
+              SizedBox(height: 150),
               Text(
                 "Enter your email and will send\nyou instructions on how to reset it",
                 style: TextStyle(
@@ -76,23 +75,48 @@ class _LoginScreenState extends State<ForgetScreen> {
               ),
               SizedBox(height: 55),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal:20),
-                child: TextInputOpacity(
-                  icon: Icon(
-                    Icons.mail,
-                    color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                child: TextField(
+                  // controller: emailController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: Colors.lightBlueAccent, width: 0.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.lightBlueAccent, width: 0.0),
+                    ),
+                    prefixIcon: Icon(
+                      Icons.mail,
+                      color: Colors.white,
+                    ),
+                    hintText: 'Email',
+                    hintStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                    fillColor: Colors.white,
+                    focusColor: Colors.white,
                   ),
-                  title: 'Email',
                 ),
               ),
               SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal:20),
-                child: BigBlueButton(title: 'Send'),
+              Center(
+                child: GestureDetector(
+                  onTap: () async {},
+                  child: Container(
+                    width: MediaQuery.of(context).size.width*0.5,
+                    height: 50,
+                    child: Buttons(
+                      buttonText: 'Send',
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
-        ),
+        ),),
       ),
     );
   }

@@ -2,7 +2,6 @@ import 'package:Foodybite/auth/auth_services.dart';
 import 'package:Foodybite/screens/login_screen/button.dart';
 import 'package:Foodybite/screens/login_screen/login_screen.dart';
 import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
-import 'package:Foodybite/widgets/big_blue_button.dart';
 import 'package:Foodybite/widgets/text_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

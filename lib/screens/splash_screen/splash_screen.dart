@@ -11,7 +11,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   startTime() async {
-    var _duration = new Duration(seconds: 2);
+    var _duration = new Duration(seconds: 4);
     return new Timer(_duration, navigationPage);
   }
 
@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             new Center(
               child: Image.network(
-                "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo2Recipo.png",
+                "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo4Recipo.png",
                 width: 500,
                 height: 500,
               )

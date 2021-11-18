@@ -2,12 +2,15 @@ import 'package:Foodybite/screens/home_screen/network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_text/gradient_text.dart';
 
-import 'tab_1.dart';
-import 'tab_2.dart';
+class HomeScreen extends StatefulWidget {
+   const HomeScreen({Key key}) : super(key: key);
 
-class HomeScreen extends StatelessWidget {
-  static final String path = "lib/src/pages/travel/travel_home.dart";
+   @override
+   _HomeScreenState createState() => _HomeScreenState();
+ }
 
+ class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +125,8 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                           color: Colors.white,
                           fontWeight: FontWeight.normal),
                       textAlign: TextAlign.center,
-                    )),
+                    )
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -132,7 +136,7 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                     elevation: 5.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     child: TextField(
-                      // controller: TextEditingController(text: locations[0]),
+                      // controller: TextEditingController(),
                       cursorColor: Theme.of(context).primaryColor,
                       style: bigBlack,
                       decoration: InputDecoration(
@@ -549,7 +553,7 @@ class CityCard2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         child: Stack(
@@ -594,7 +598,8 @@ class CityCard2 extends StatelessWidget {
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
-                            letterSpacing: 1),
+                            letterSpacing: 1
+                        ),
                       ),
                       Text(
                         monthYear,
