@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-final CollectionReference _recipeCollection = _firestore.collection('recipe');
+final CollectionReference _recipeCollection = _firestore.collection('users');
 
 class RecipeDatabase {
   static Future<void> addRecipe({
@@ -14,6 +14,7 @@ class RecipeDatabase {
     String sub_ingredient,
     String time_to_cook,
     String image,
+    String category,
   }) async {
     DocumentReference documentReference =
     _recipeCollection.doc(userId).collection("recipes").doc(DateTime.now().millisecondsSinceEpoch.toString());
@@ -28,6 +29,7 @@ class RecipeDatabase {
       "sub_ingredient": sub_ingredient,
       "time_to_cook": time_to_cook,
       "image": image,
+      "category": category,
     };
     await documentReference
         .set(data)
@@ -46,6 +48,7 @@ class RecipeDatabase {
     String sub_ingredient,
     String time_to_cook,
     String image,
+    String category,
   }) async {
     DocumentReference documentReference =
     _recipeCollection.doc(userId).collection("recipes").doc(docId);
@@ -59,6 +62,7 @@ class RecipeDatabase {
       "sub_ingredient": sub_ingredient,
       "time_to_cook": time_to_cook,
       "image": image,
+      "category": category,
     };
     await documentReference
         .set(data)

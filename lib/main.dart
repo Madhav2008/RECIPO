@@ -4,7 +4,6 @@ import 'package:Foodybite/screens/forget_password_screen/forget_password_screen.
 import 'package:Foodybite/screens/login_screen/login_screen.dart';
 import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
 import 'package:Foodybite/screens/register_screen/register_screen.dart';
-import 'package:Foodybite/screens/search_screen/search_screen.dart';
 import 'package:Foodybite/screens/splash_screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +35,6 @@ class MyApp extends StatelessWidget {
           '/': (context) => SplashScreen(),
           '/loginScreen': (context) => LoginScreen(),
           '/navigationScreen': (context) => Navigation(),
-          '/searchScreen': (context) => SearchScreen(),
           '/DetailScreen': (context) => DetailScreen("assets/images/Register.png"),
           '/forgetScreen': (context) => ForgetScreen(),
           '/registerScreen': (context) => RegisterScreen(),

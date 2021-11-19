@@ -1,194 +1,3 @@
-// import 'package:Foodybite/screens/profile_screen/tab_1.dart';
-// import 'package:Foodybite/screens/profile_screen/tab_2.dart';
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:gradient_text/gradient_text.dart';
-//
-// class ProfileScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return DefaultTabController(
-//       length: 2,
-//       child: Scaffold(
-//         appBar: AppBar(
-//           title: GradientText(
-//             'Profile',
-//             gradient: LinearGradient(
-//               colors: [
-//                 Color.fromRGBO(255, 138, 110, 1),
-//                 Color.fromRGBO(255, 63, 111, 1),
-//               ],
-//               begin: Alignment.centerLeft,
-//               end: Alignment.centerRight,
-//             ),
-//             style: TextStyle(
-//               color: Colors.black,
-//               fontSize: 25.0,
-//               fontWeight: FontWeight.bold,
-//             ),
-//           ),
-//           centerTitle: true,
-//           backgroundColor: Colors.transparent,
-//           elevation: 0.0,
-//         ),
-//         backgroundColor: Colors.white,
-//         body: Column(
-//           children: [
-//             Container(
-//               height: 120,
-//               width: 120,
-//               child: Image.asset("assets/try.png", fit: BoxFit.cover),
-//               decoration: BoxDecoration(
-//                 shape: BoxShape.circle,
-//                 color: Colors.grey[200],
-//               ),
-//             ),
-//
-//             // username
-//             Padding(
-//               padding: const EdgeInsets.only(bottom:20),
-//               child: Text(
-//                 '@aroramadhav65',
-//                 style: TextStyle(color: Colors.blue, fontSize: 20),
-//               ),
-//             ),
-//
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Expanded(
-//                   child: Container(
-//                     alignment: Alignment.centerRight,
-//                     child: Column(
-//                       children: [
-//                         Text(
-//                           '37',
-//                           style: TextStyle(
-//                               color: Colors.black,
-//                               fontWeight: FontWeight.bold,
-//                               fontSize: 24),
-//                         ),
-//                         SizedBox(
-//                           height: 5,
-//                         ),
-//                         Text(
-//                           'Following',
-//                           style: TextStyle(color: Colors.blue, fontSize: 15),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//                 Expanded(
-//                   child: Container(
-//                     child: Column(
-//                       children: [
-//                         Text(
-//                           '8',
-//                           style: TextStyle(
-//                               color: Colors.black,
-//                               fontWeight: FontWeight.bold,
-//                               fontSize: 24),
-//                         ),
-//                         SizedBox(
-//                           height: 5,
-//                         ),
-//                         Text(
-//                           'Followers',
-//                           style: TextStyle(color: Colors.blue, fontSize: 15),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//                 Expanded(
-//                   child: Container(
-//                     alignment: Alignment.centerLeft,
-//                     child: Column(
-//                       children: [
-//                         Text(
-//                           '56',
-//                           style: TextStyle(
-//                               color: Colors.black,
-//                               fontWeight: FontWeight.bold,
-//                               fontSize: 24),
-//                         ),
-//                         SizedBox(
-//                           height: 5,
-//                         ),
-//                         Text(
-//                           '  Likes  ',
-//                           style: TextStyle(color: Colors.blue, fontSize: 15),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//
-//             SizedBox(height: 15),
-//
-//             // buttons -> edit profile, insta links, bookmark
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Container(
-//                   padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-//                   child: Text('Edit profile',
-//                       style: TextStyle(color: Colors.black, fontSize: 20)
-//                   ),
-//                   decoration: BoxDecoration(
-//                       border: Border.all(color: Colors.grey.shade300),
-//                       borderRadius: BorderRadius.circular(5)
-//                   ),
-//                 ),
-//                 Container(
-//                   padding: EdgeInsets.all(15),
-//                   child: Icon(
-//                     Icons.bookmark_border,
-//                     color: Colors.grey[800],
-//                   ),
-//                   decoration: BoxDecoration(
-//                       border: Border.all(color: Colors.grey.shade300),
-//                       borderRadius: BorderRadius.circular(5)),
-//                 ),
-//               ],
-//             ),
-//             SizedBox(height: 15),
-//             Text(
-//               '🖋 Your Bio 🖋',
-//               style: TextStyle(color: Colors.black),
-//             ),
-//
-//             // default tab controller
-//
-//             TabBar(
-//               tabs: [
-//                 Tab(
-//                   icon: Icon(Icons.grid_3x3, color: Colors.black),
-//                 ),
-//                 Tab(
-//                   icon: Icon(Icons.favorite, color: Colors.black),
-//                 ),
-//               ],
-//             ),
-//
-//             Expanded(
-//               child: TabBarView(
-//                 children: [
-//                   FirstTab(),
-//                   SecondTab(),
-//                 ],
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:Foodybite/auth/auth_services.dart';
 import 'package:Foodybite/screens/login_screen/login_screen.dart';
 import 'package:Foodybite/screens/profile_screen/tab_1.dart';
@@ -435,3 +244,189 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+// import 'package:Foodybite/models/users.dart';
+// import 'package:Foodybite/screens/login_screen/login_screen.dart';
+// import 'package:Foodybite/auth/auth_services.dart';
+// import 'package:Foodybite/widgets/simple_button.dart';
+// import 'package:Foodybite/widgets/card.dart';
+// import 'package:flutter/material.dart';
+// import 'package:provider/provider.dart';
+//
+// import 'column_text.dart';
+// import 'tab_1.dart';
+// import 'tab_2.dart';
+//
+// class ProfileScreen extends StatelessWidget {
+//   const ProfileScreen({Key key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+//     final authService = Provider.of<AuthService>(context);
+//     return Scaffold(
+//       appBar: AppBar(
+//         centerTitle: true,
+//         title: Text(
+//           'Profile',
+//           style: TextStyle(
+//             color: Colors.black,
+//             fontWeight: FontWeight.bold,
+//           ),
+//         ),
+//         backgroundColor: Colors.transparent,
+//         elevation: 0.0,
+//       ),
+//       body: Column(
+//         children: <Widget>[
+//           // SizedBox(height: 10.0),
+//           Center(
+//             child: CircleAvatar(
+//               radius: 40.0,
+//               backgroundColor: Colors.redAccent,
+//               backgroundImage: AssetImage("assets/RecipoLogo.png"),
+//             ),
+//           ),
+//           SizedBox(
+//             height: 10.0,
+//           ),
+//           Text(
+//             "Madhav Arora",
+//             style: TextStyle(
+//               fontSize: 23.0,
+//             ),
+//           ),
+//           SizedBox(
+//             height: 5.0,
+//           ),
+//           Text(
+//             "aroramadhav65@gmail.com",
+//             style: TextStyle(
+//               fontSize: 15.0,
+//               color: Colors.grey,
+//             ),
+//           ),
+//           SizedBox(
+//             height: 10.0,
+//           ),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: <Widget>[
+//               Padding(
+//                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//                 child: ColumnText(
+//                   title: 'Likes',
+//                   count: '125k',
+//                 ),
+//               ),
+//               Text(
+//                 "|",
+//                 style: TextStyle(
+//                   fontSize: 45.0,
+//                   color: Colors.grey[300],
+//                   fontWeight: FontWeight.w100,
+//                 ),
+//               ),
+//               Padding(
+//                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//                   child: ColumnText(
+//                       title: 'Followers', count: "10")),
+//               Text(
+//                 "|",
+//                 style: TextStyle(
+//                   fontSize: 45.0,
+//                   color: Colors.grey[300],
+//                   fontWeight: FontWeight.w100,
+//                 ),
+//               ),
+//               Padding(
+//                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//                   child: ColumnText(
+//                     title: 'Following',
+//                     count: "20k",
+//                   )),
+//             ],
+//           ),
+//           SizedBox(height: 10.0),
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               SimpleButton(
+//                 title: 'Edit Profile',
+//                 color1: Colors.redAccent,
+//                 color2: Colors.white,
+//               ),
+//               SizedBox(width: 10.0),
+//               SimpleButton(
+//                 title: 'Logout',
+//                 color1: Colors.redAccent,
+//                 color2: Colors.white,
+//                 onPress: ()async{
+//                   authService.signOut();
+//                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+//                 },
+//               ),
+//             ],
+//           ),
+//           Divider(
+//             // height: 35,
+//             thickness: 2,
+//             // indent: 20,
+//             // endIndent: 20,
+//           ),
+//             // Expanded(
+//             //     child: Column(
+//             //       children: [
+//             //         TabBar(
+//             //           indicatorColor: Colors.redAccent,
+//             //           tabs: [
+//             //             Tab(
+//             //               icon: Icon(Icons.grid_3x3, color: Colors.black),
+//             //             ),
+//             //             Tab(
+//             //               icon: Icon(Icons.favorite, color: Colors.red),
+//             //             ),
+//             //           ],
+//             //         ),
+//             //
+//             //         Expanded(
+//             //           child: TabBarView(
+//             //             children: [
+//             //               FirstTab(),
+//             //               SecondTab(),
+//             //             ],
+//             //           ),
+//             //         )
+//             //       ],
+//             //     )
+//             // ),
+//           Expanded(
+//             child: Container(
+//               child: ListView.builder(
+//                   itemCount: 5,
+//                   itemBuilder: (BuildContext context, int index) {
+//                     return Padding(
+//                       padding: const EdgeInsets.symmetric(
+//                           horizontal: 20.0, vertical: 20.0),
+//                       // child: FirstTab(),
+//                       child: StyleCard(
+//                           rate: '🌟 4.5',
+//                           title: 'Happy Bones',
+//                           isOpen: 'OPEN',
+//                           category: 'Italian',
+//                           image: 'assets/images/Register.png',
+//                           about: 'Lorem Ipsum is simply dummy text',
+//                           size: MediaQuery.of(context).size.width * 0.91,
+//                           onPress: () {
+//                             Navigator.pushNamed(
+//                                 context, '/DetailScreen');
+//                           }),
+//                     );
+//                   }),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

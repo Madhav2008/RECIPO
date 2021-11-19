@@ -11,7 +11,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   startTime() async {
-    var _duration = new Duration(seconds: 4);
+    var _duration = new Duration(seconds: 2);
     return new Timer(_duration, navigationPage);
   }
 
@@ -55,21 +55,21 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             new Center(
-              child: Image.network(
-                "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo4Recipo.png",
-                width: 500,
-                height: 500,
-              )
-              // child: Text(
-              //   'Recipo',
-              //   style: TextStyle(
-              //       fontSize: 50,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.bold,
-              //       // fontFamily: "MuseoModerno"
-              //   ),
-              // ),
-              // child: Container(width:200, height:200, child: Image.asset('assets/images/Logo.png'))
+              // child: Image.network(
+              //   "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo2Recipo.png",
+              //   width: 500,
+              //   height: 500,
+              // )
+              child: Text(
+                'Recipo',
+                style: TextStyle(
+                    fontSize: 50,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "MuseoModerno",
+                ),
+              ),
+              // child: Container(width:200, height:200, child: Image.asset('assets/Logo4Recipo.png'))
             )
           ],
         ));
@@ -97,3 +97,47 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   }
 }
+
+// import 'package:Foodybite/auth/wrapper.dart';
+// import 'package:Foodybite/screens/home_screen/home_screen.dart';
+// import 'package:animated_splash_screen/animated_splash_screen.dart';
+// import 'package:flutter/material.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
+//
+// class SplashScreen extends StatelessWidget {
+//   const SplashScreen({Key key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: AnimatedSplashScreen(
+//         splash: Image.network(
+//           "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo4Recipo.png",
+//           width: 300,
+//           height: 300,
+//         ),
+//         nextScreen: HomeScreen(),
+//         backgroundColor: Colors.redAccent,
+//         splashTransition: SplashTransition.rotationTransition,
+//         duration: 1000,
+//       )
+//     );
+//   }
+// }
+//
+// @override
+// void navigationPage(BuildContext context) async {
+//     final prefs = await SharedPreferences.getInstance();
+//     final token = prefs.getString('token') ?? '';
+//     if (token.isEmpty) {
+//       Navigator.pushReplacement(
+//         context,
+//         MaterialPageRoute(builder: (context) => Wrapper()),
+//       );
+//     }else{
+//       Navigator.pushReplacement(
+//         context,
+//         MaterialPageRoute(builder: (context) => Wrapper()),
+//       );
+//     }
+//   }

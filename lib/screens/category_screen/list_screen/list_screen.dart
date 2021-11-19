@@ -1,11 +1,13 @@
 import 'package:Foodybite/models/category.dart';
 import 'package:Foodybite/screens/category_screen/widgets/custom_app_bar.dart';
-import 'package:Foodybite/screens/category_screen/widgets/trend_card.dart';
+import 'package:Foodybite/widgets/card.dart';
 import 'package:flutter/material.dart';
 
 class ListScreen extends StatefulWidget {
-  const ListScreen({Key key, this.category}) : super(key: key);
+  const ListScreen({Key key, this.category, this.title}) : super(key: key);
   final Category category;
+  final String title;
+
   @override
   _ListScreenState createState() => _ListScreenState();
 }
@@ -29,17 +31,16 @@ class _ListScreenState extends State<ListScreen> {
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 50.0,
-                        vertical: 20.0,
+                        horizontal: 19.0,
+                        vertical: 15.0,
                       ),
-                      child: TrendCard(
+                      child: StyleCard(
                           rate: '🌟 4.5',
                           title: 'Happy Bones',
                           isOpen: 'OPEN',
-                          category: 'Italian',
-                          image: 'assets/images/Login.png',
-                          address: '394 Broome St, New York, NY 10013, USA',
-                          distance: '12 km',
+                          category: widget.category.name,
+                          image: widget.category.imageUrl,
+                          about: 'Lorem Ipsum is simply dummy text',
                           size: MediaQuery.of(context).size.width * 0.91,
                           onPress: () {
                             Navigator.pushNamed(context, '/DetailScreen');

@@ -34,7 +34,7 @@ class CustomAppbar extends StatelessWidget {
             ),
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.only(top: 12.0),
                 child: Row(
                   children: [
                     IconButton(
@@ -48,7 +48,7 @@ class CustomAppbar extends StatelessWidget {
                       },
                     ),
                     SizedBox(
-                      width: 100.0,
+                      width: 140.0,
                     ),
                     Text(
                       "$title",

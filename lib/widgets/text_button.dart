@@ -19,7 +19,7 @@ class TextSimpleButton extends StatelessWidget {
       child: Text(
         '$title',
         style: TextStyle(
-          fontSize: 15.0,
+          fontSize: 16.0,
           color: colors,
         ),
       ),

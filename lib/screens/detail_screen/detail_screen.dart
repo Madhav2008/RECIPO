@@ -25,14 +25,17 @@ class DetailScreen extends StatelessWidget {
               ),
               tag: image,
             ),
-            IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
             ),
 
             DraggableScrollableSheet(

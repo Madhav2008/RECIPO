@@ -1,21 +1,21 @@
-import 'package:Foodybite/screens/category_screen/widgets/small_tag.dart';
-import 'package:Foodybite/screens/category_screen/widgets/small_text_box.dart';
+import 'package:Foodybite/widgets/small_tag.dart';
+import 'package:Foodybite/widgets/small_text_box.dart';
 import 'package:flutter/material.dart';
 
-class TrendCard extends StatelessWidget {
-  const TrendCard({
+class StyleCard extends StatelessWidget {
+  const StyleCard({
     Key key,
     this.image,
     this.title,
     this.isOpen,
     this.rate,
     this.category,
-    this.distance,
-    this.address,
+    // this.distance,
+    this.about,
     this.onPress,
     this.size,
   }) : super(key: key);
-  final String image, title, isOpen, rate, category, distance, address;
+  final String image, title, isOpen, rate, category, about;
   final double size;
   final Function onPress;
   @override
@@ -43,7 +43,7 @@ class TrendCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: 165,
+              top: 128,
               child: Container(
                 width: size,
                 height: MediaQuery.of(context).size.height * 0.1,
@@ -55,9 +55,10 @@ class TrendCard extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15.0,
-                    vertical: 15.0,
+                  padding: const EdgeInsets.only(
+                    top: 7,
+                    left: 10,
+                    right: 10,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,16 +78,16 @@ class TrendCard extends StatelessWidget {
                             title: '$category',
                             color: Colors.pink[200],
                           ),
-                          SizedBox(width: 10.0),
-                          SmallTag(
-                            title: '$distance',
-                            color: Colors.purpleAccent,
-                          ),
+                          // SizedBox(width: 10.0),
+                          // SmallTag(
+                          //   title: '$distance',
+                          //   color: Colors.purpleAccent,
+                          // ),
                         ],
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        '$address',
+                        '$about',
                         style: TextStyle(
                           color: Colors.grey[500],
                         ),
