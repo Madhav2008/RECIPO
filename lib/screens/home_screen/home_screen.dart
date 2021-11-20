@@ -1,4 +1,3 @@
-import 'package:Foodybite/screens/home_screen/network_image.dart';
 import 'package:Foodybite/screens/view_all_recent_recipes/view_all_recent_recipes.dart';
 import 'package:Foodybite/widgets/card.dart';
 import 'package:Foodybite/widgets/text_button.dart';
@@ -18,6 +17,7 @@ class HomeScreen extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
+        automaticallyImplyLeading: false,
         title: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Image.network(
@@ -48,7 +48,6 @@ class HomeScreen extends StatefulWidget {
       body: ListView(
         children: <Widget>[
           HomeScreenTop(),
-          // homeScreenBottom,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: Row(
@@ -90,7 +89,7 @@ class HomeScreen extends StatefulWidget {
             image: "assets/images/Register.png",
             about: 'Lorem Ipsum is simply dummy text',
             size: MediaQuery.of(context).size.width * 0.91,
-            onPress: ()async{
+            onPress: (){
               Navigator.pushNamed(context, '/DetailScreen');
             }
             ),
@@ -126,9 +125,6 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
               Color.fromRGBO(226, 55, 68, 0.60),
               Color.fromRGBO(226, 55, 68, 0.60),
               Color.fromRGBO(226, 55, 68, 0.60),
-              // Color.fromRGBO(226, 55, 68, 0.80),
-              // Color.fromRGBO(226, 55, 68, 1.0),
-              // Colors.redAccent,
             ])),
             child: Column(
               children: <Widget>[
@@ -164,7 +160,7 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                       "What Do You Want To Eat ?",
                       style: TextStyle(
                           fontFamily: 'OpenSans',
-                          fontSize: 22,
+                          fontSize: 20,
                           color: Colors.white,
                           fontWeight: FontWeight.normal),
                       textAlign: TextAlign.center,
@@ -179,7 +175,6 @@ class _HomeScreenTopState extends State<HomeScreenTop> {
                     elevation: 5.0,
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                     child: TextField(
-                      // controller: TextEditingController(),
                       cursorColor: Theme.of(context).primaryColor,
                       style: bigBlack,
                       decoration: InputDecoration(
@@ -246,7 +241,6 @@ class ChoiceChip extends StatefulWidget {
 class _ChoiceChipState extends State<ChoiceChip> {
   @override
   Widget build(BuildContext context) {
-    // FirstTab();
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: widget.isRecentSelected
@@ -285,7 +279,6 @@ class ChoiceChip2 extends StatefulWidget {
 class _ChoiceChip2State extends State<ChoiceChip2> {
   @override
   Widget build(BuildContext context) {
-    // FirstTab();
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       decoration: widget.isRecentSelected
@@ -335,366 +328,3 @@ class WaveClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
-
-final Widget homeScreenBottom = Column(
-  children: <Widget>[
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Text("Recent Recipes",
-              style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w700)),
-          Spacer(),
-          Builder(
-              builder: (BuildContext context) => TextSimpleButton(
-                title: "View All",
-                colors: Colors.lightBlue,
-                onPress: () async{
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ViewAllRecentRecipesScreen()
-                      )
-                  );
-                },
-                ),
-          )
-        ],
-      ),
-    ),
-    // Container(
-    //   height: 210,
-    //   child: ListView(scrollDirection: Axis.horizontal, children: cityCards),
-    // ),
-    // Padding(
-    //   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-    // ),
-    // Container(
-    //   height: 210,
-    //   child: ListView(scrollDirection: Axis.vertical, children: cityCards2),
-    // )
-  ],
-);
-//
-// final Widget homeScreenBottom2 = Column(
-//   children: <Widget>[
-//     Padding(
-//       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-//       child: Row(
-//         mainAxisSize: MainAxisSize.max,
-//         children: <Widget>[
-//           Text("Most Liked Recipes",
-//               style: TextStyle(
-//                   color: Colors.black87,
-//                   fontSize: 15,
-//                   fontWeight: FontWeight.w700)),
-//           Spacer(),
-//           Builder(
-//             builder: (BuildContext context) => TextSimpleButton(
-//               title: "View All",
-//               colors: Colors.lightBlue,
-//               onPress: () async{
-//                 Navigator.push(
-//                     context,
-//                     MaterialPageRoute(
-//                         builder: (context) => ViewAllRecentRecipesScreen()
-//                     )
-//                 );
-//               },
-//             ),
-//           )
-//         ],
-//       ),
-//     ),
-//     Container(
-//       height: 210,
-//       child: ListView(scrollDirection: Axis.horizontal, children: cityCards),
-//     ),
-//     Container(
-//       height: 210,
-//       child: ListView(scrollDirection: Axis.horizontal, children: cityCards2),
-//     )
-//   ],
-// );
-
-List<CityCard> cityCards = [
-  CityCard(
-      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-      "Recipe 1",
-      "12 Feb",
-      "10",
-      "500",
-      '440'),
-  CityCard(
-      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-      "Recipe 2",
-      "12 Feb",
-      "10",
-      "500",
-      '440'),
-  CityCard(
-      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-      "Recipe 3",
-      "12 Feb",
-      "10",
-      "500",
-      '440'),
-  CityCard(
-      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-      "Recipe 4",
-      "12 Feb",
-      "10",
-      "500",
-      '440'),
-  CityCard(
-      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-      "Recipe 5",
-      "12 Feb",
-      "10",
-      "500",
-      '440'),
-  CityCard(
-      "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-      "Recipe 6",
-      "12 Feb",
-      "10",
-      "500",
-      '440'),
-];
-
-class CityCard extends StatelessWidget {
-  final String imagePath, cityName, monthYear, discount, oldPrice, newPrice;
-
-  CityCard(this.imagePath, this.cityName, this.monthYear, this.discount,
-      this.oldPrice, this.newPrice);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        child: Stack(
-          children: <Widget>[
-            Container(
-              width: 165,
-              height: 210,
-              child: PNetworkImage(
-                imagePath,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Positioned(
-              left: 0,
-              bottom: 0,
-              width: 160,
-              height: 60,
-              child: Container(
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [Colors.black, Colors.black12])),
-              ),
-            ),
-            Positioned(
-              left: 10,
-              bottom: 10,
-              width: 145,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        cityName,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 1),
-                      ),
-                      Text(
-                        monthYear,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13,
-                            fontWeight: FontWeight.normal),
-                      ),
-                    ],
-                  ),
-                  Container(
-                      padding: EdgeInsets.symmetric(vertical: 2),
-                      // decoration: BoxDecoration(
-                      //     color: Colors.white,
-                      //     shape: BoxShape.rectangle,
-                      //     borderRadius: BorderRadius.all(Radius.circular(10))),
-                      // child: Text(
-                      //   "$discount%",
-                      //   style: TextStyle(color: Colors.black, fontSize: 14),
-                      // )
-                      // child: LikeButton()
-                      child: IconButton(
-                        icon: Icon(Icons.favorite_outline_sharp),
-                        color: Colors.redAccent,
-                        iconSize: 30,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/DetailScreen');
-                        },
-                      ))
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// List<CityCard2> cityCards2 = [
-//   CityCard2(
-//       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-//       "Recipe 1",
-//       "12 Feb",
-//       "10",
-//       "500",
-//       '440'),
-//   CityCard2(
-//       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-//       "Recipe 2",
-//       "12 Feb",
-//       "10",
-//       "500",
-//       '440'),
-//   CityCard2(
-//       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-//       "Recipe 3",
-//       "12 Feb",
-//       "10",
-//       "500",
-//       '440'),
-//   CityCard2(
-//       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-//       "Recipe 4",
-//       "12 Feb",
-//       "10",
-//       "500",
-//       '440'),
-//   CityCard2(
-//       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-//       "Recipe 5",
-//       "12 Feb",
-//       "10",
-//       "500",
-//       '440'),
-//   CityCard2(
-//       "https://cdn.pixabay.com/photo/2017/12/10/17/40/prague-3010407_960_720.jpg",
-//       "Recipe 6",
-//       "12 Feb",
-//       "10",
-//       "500",
-//       '440'),
-// ];
-//
-// class CityCard2 extends StatelessWidget {
-//   final String imagePath, cityName, monthYear, discount, oldPrice, newPrice;
-//
-//   CityCard2(this.imagePath, this.cityName, this.monthYear, this.discount,
-//       this.oldPrice, this.newPrice);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-//       child: ClipRRect(
-//         borderRadius: BorderRadius.all(Radius.circular(10)),
-//         child: Stack(
-//           children: <Widget>[
-//             Container(
-//               width: MediaQuery.of(context).size.width-15,
-//               height: 210,
-//               child: PNetworkImage(
-//                 imagePath,
-//                 fit: BoxFit.cover,
-//               ),
-//             ),
-//             Positioned(
-//               left: 0,
-//               bottom: 0,
-//               width: MediaQuery.of(context).size.width-15,
-//               height: 60,
-//               child: Container(
-//                 decoration: BoxDecoration(
-//                     gradient: LinearGradient(
-//                         begin: Alignment.bottomCenter,
-//                         end: Alignment.topCenter,
-//                         colors: [Colors.black, Colors.black12]
-//                     )
-//                 ),
-//               ),
-//             ),
-//             Positioned(
-//               left: 10,
-//               bottom: 10,
-//               width: 145,
-//               child: Row(
-//                 mainAxisSize: MainAxisSize.max,
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: <Widget>[
-//                   Column(
-//                     crossAxisAlignment: CrossAxisAlignment.start,
-//                     children: <Widget>[
-//                       Text(
-//                         cityName,
-//                         style: TextStyle(
-//                             color: Colors.white,
-//                             fontSize: 16,
-//                             fontWeight: FontWeight.w700,
-//                             letterSpacing: 1
-//                         ),
-//                       ),
-//                       Text(
-//                         monthYear,
-//                         style: TextStyle(
-//                             color: Colors.white,
-//                             fontSize: 13,
-//                             fontWeight: FontWeight.normal),
-//                       ),
-//                     ],
-//                   ),
-//                   Container(
-//                       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-//                       // decoration: BoxDecoration(
-//                       //     color: Colors.white,
-//                       //     shape: BoxShape.rectangle,
-//                       //     borderRadius: BorderRadius.all(Radius.circular(10))),
-//                       // child: Text(
-//                       //   "$discount%",
-//                       //   style: TextStyle(color: Colors.black, fontSize: 14),
-//                       // )
-//                       // child: LikeButton()
-//                       child: IconButton(
-//                         icon: Icon(Icons.favorite_outline_sharp),
-//                         color: Colors.redAccent,
-//                         iconSize: 30,
-//                         onPressed: () {
-//                           Navigator.pushNamed(context, '/DetailScreen');
-//                         },
-//                       )
-//                     )
-//                 ],
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

@@ -25,7 +25,7 @@ class Search extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width * 0.78,
+            width: MediaQuery.of(context).size.width * 0.9,
             child: TextField(
               decoration: InputDecoration(
                 enabledBorder: const OutlineInputBorder(

@@ -10,7 +10,6 @@ class StyleCard extends StatelessWidget {
     this.isOpen,
     this.rate,
     this.category,
-    // this.distance,
     this.about,
     this.onPress,
     this.size,
@@ -22,7 +21,7 @@ class StyleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: MediaQuery.of(context).size.height * 0.3,
+      height: MediaQuery.of(context).size.height * 0.4,
       decoration: BoxDecoration(
         color: Colors.blue,
         borderRadius: BorderRadius.circular(15.0),
@@ -49,10 +48,6 @@ class StyleCard extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.1,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(15.0),
-                    bottomLeft: Radius.circular(15.0),
-                  ),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
@@ -78,11 +73,6 @@ class StyleCard extends StatelessWidget {
                             title: '$category',
                             color: Colors.pink[200],
                           ),
-                          // SizedBox(width: 10.0),
-                          // SmallTag(
-                          //   title: '$distance',
-                          //   color: Colors.purpleAccent,
-                          // ),
                         ],
                       ),
                       SizedBox(height: 5.0),

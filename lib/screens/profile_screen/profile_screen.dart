@@ -1,4 +1,5 @@
 import 'package:Foodybite/auth/auth_services.dart';
+import 'package:Foodybite/screens/edit_profile_screen/edit_profile_screen.dart';
 import 'package:Foodybite/screens/login_screen/login_screen.dart';
 import 'package:Foodybite/screens/profile_screen/tab_1.dart';
 import 'package:Foodybite/screens/profile_screen/tab_2.dart';
@@ -16,30 +17,34 @@ class ProfileScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.redAccent,
           elevation: 1,
-            title: GradientText(
-              "Profile",
-              gradient: LinearGradient(
-                colors: [
-                  Colors.white,
-                  Colors.white,
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'MuseoModerno',
-                fontWeight: FontWeight.bold,
-              ),
+          automaticallyImplyLeading: false,
+          title: GradientText(
+            "Profile",
+            gradient: LinearGradient(
+              colors: [
+                Colors.white,
+                Colors.white,
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
             ),
+            style: TextStyle(
+              fontSize: 28,
+              fontFamily: 'MuseoModerno',
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           actions: [
             IconButton(
-              onPressed: ()async {
+              onPressed: () async {
                 authService.signOut();
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
-              // icon: Icon(Icons.power_settings_new_rounded), color: Colors.white,)
-              icon: Icon(Icons.logout_sharp), color: Colors.white,)
+              // icon: Icon(Icons.logout_sharp),
+              icon: Icon(Icons.power_settings_new_rounded), color: Colors.white,)
+              // color: Colors.white,
+            // )
           ],
         ),
         // appBar: AppBar(
@@ -53,191 +58,307 @@ class ProfileScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Column(
           children: [
-            Container(
-                color: Color.fromRGBO(226, 55, 68, 0.20),
-                padding: EdgeInsets.only(top: 10,bottom: 10),
-                child:Column(
-                    children:[
-                      Container(
-                        height: 120,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.grey[200],
-                        ),
+            // Container(
+            //     color: Color.fromRGBO(226, 55, 68, 0.20),
+            //     padding: EdgeInsets.only(top: 10,bottom: 10),
+            //     child:Column(
+            //         children:[
+            //           Container(
+            //             height: 120,
+            //             width: 120,
+            //             decoration: BoxDecoration(
+            //               shape: BoxShape.circle,
+            //               color: Colors.grey[200],
+            //             ),
+            //           ),
+            //
+            //           // username
+            //           Padding(
+            //             padding: const EdgeInsets.all(20.0),
+            //             child: Text(
+            //               '@aroramadhav65',
+            //               style: TextStyle(color: Colors.black, fontSize: 20),
+            //             ),
+            //           ),
+            //
+            //           // number of following, followers, likes
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               Expanded(
+            //                 child: Container(
+            //                   alignment: Alignment.centerRight,
+            //                   child: Column(
+            //                     children: [
+            //                       Text(
+            //                         '37',
+            //                         style: TextStyle(
+            //                             color: Colors.black,
+            //                             fontWeight: FontWeight.bold,
+            //                             fontSize: 24),
+            //                       ),
+            //                       SizedBox(
+            //                         height: 5,
+            //                       ),
+            //                       Text(
+            //                         'Following',
+            //                         style: TextStyle(color: Colors.grey, fontSize: 15),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                 ),
+            //               ),
+            //               Expanded(
+            //                 child: Container(
+            //                   child: Column(
+            //                     children: [
+            //                       Text(
+            //                         '8',
+            //                         style: TextStyle(
+            //                             color: Colors.black,
+            //                             fontWeight: FontWeight.bold,
+            //                             fontSize: 24),
+            //                       ),
+            //                       SizedBox(
+            //                         height: 5,
+            //                       ),
+            //                       Text(
+            //                         'Followers',
+            //                         style: TextStyle(color: Colors.grey, fontSize: 15),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                 ),
+            //               ),
+            //               Expanded(
+            //                 child: Container(
+            //                   alignment: Alignment.centerLeft,
+            //                   child: Column(
+            //                     children: [
+            //                       Text(
+            //                         '56',
+            //                         style: TextStyle(
+            //                             color: Colors.black,
+            //                             fontWeight: FontWeight.bold,
+            //                             fontSize: 24),
+            //                       ),
+            //                       SizedBox(
+            //                         height: 5,
+            //                       ),
+            //                       Text(
+            //                         '  Likes  ',
+            //                         style: TextStyle(color: Colors.grey, fontSize: 15),
+            //                       ),
+            //                     ],
+            //                   ),
+            //                 ),
+            //               ),
+            //             ],
+            //           ),
+            //
+            //           SizedBox(height: 15),
+            //
+            //           // buttons -> edit profile, insta links, bookmark
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             children: [
+            //               Container(
+            //
+            //                 padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+            //                 child: Text('Edit profile',
+            //                     style: TextStyle(color: Colors.black, fontSize: 20)
+            //                 ),
+            //                 decoration: BoxDecoration(
+            //                     border: Border.all(color: Colors.black45),
+            //                     borderRadius: BorderRadius.circular(5)
+            //                 ),
+            //               ),
+            //               Padding(
+            //                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            //                 child: Container(
+            //                   padding: EdgeInsets.all(15),
+            //                   child: Icon(
+            //                     Icons.camera_alt,
+            //                     color: Colors.grey[800],
+            //                   ),
+            //                   decoration: BoxDecoration(
+            //                       border: Border.all(color: Colors.black45),
+            //                       borderRadius: BorderRadius.circular(5)),
+            //                 ),
+            //               ),
+            //               Container(
+            //                 padding: EdgeInsets.all(15),
+            //                 child: Icon(
+            //                   Icons.bookmark_border,
+            //                   color: Colors.grey[800],
+            //                 ),
+            //                 decoration: BoxDecoration(
+            //                     border: Border.all(color: Colors.black45),
+            //                     borderRadius: BorderRadius.circular(5)),
+            //               ),
+            //             ],
+            //           ),
+            //           SizedBox(height: 15),
+            //           Container(
+            //             margin: EdgeInsets.symmetric(horizontal: 48),
+            //             width: double.infinity,
+            //             padding: EdgeInsets.all(15),
+            //             child: Center(
+            //               child: Text(
+            //                 '🖋 Your Bio 🖋',
+            //                 style: TextStyle(color: Colors.grey[700]),
+            //               ),
+            //             ),
+            //             decoration: BoxDecoration(
+            //                 border: Border.all(color: Colors.black45),
+            //                 borderRadius: BorderRadius.circular(5)),
+            //           ),
+            Row(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(top: 29),
+                      child: CircleAvatar(
+                        radius: 45,
+                        backgroundColor: Colors.grey.withOpacity(0.3),
+                        // backgroundImage: AssetImage(
+                        //   "assets/images/Login.png",
+                        // ),
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.black,
+                          size: 80
+                        )
                       ),
-
-                      // username
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          '@aroramadhav65',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
-                        ),
-                      ),
-
-                      // number of following, followers, likes
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.centerRight,
-                              child: Column(
-                                children: [
-                                  Text(
-                                    '37',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 24),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    'Following',
-                                    style: TextStyle(color: Colors.grey, fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    '8',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 24),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    'Followers',
-                                    style: TextStyle(color: Colors.grey, fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              child: Column(
-                                children: [
-                                  Text(
-                                    '56',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 24),
-                                  ),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    '  Likes  ',
-                                    style: TextStyle(color: Colors.grey, fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      SizedBox(height: 15),
-
-                      // buttons -> edit profile, insta links, bookmark
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-
-                            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                            child: Text('Edit profile',
-                                style: TextStyle(color: Colors.black, fontSize: 20)
-                            ),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black45),
-                                borderRadius: BorderRadius.circular(5)
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                            child: Container(
-                              padding: EdgeInsets.all(15),
-                              child: Icon(
-                                Icons.camera_alt,
-                                color: Colors.grey[800],
-                              ),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black45),
-                                  borderRadius: BorderRadius.circular(5)),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(15),
-                            child: Icon(
-                              Icons.bookmark_border,
-                              color: Colors.grey[800],
-                            ),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black45),
-                                borderRadius: BorderRadius.circular(5)),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 15),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 48),
-                        width: double.infinity,
-                        padding: EdgeInsets.all(15),
-                        child: Center(
-                          child: Text(
-                            '🖋 Your Bio 🖋',
-                            style: TextStyle(color: Colors.grey[700]),
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black45),
-                            borderRadius: BorderRadius.circular(5)),
-                      ),
-
-                    ]
-                )
-            ),
-            Expanded(
-                child: Column(
-                  children: [
-                    TabBar(
-                      indicatorColor: Colors.redAccent,
-                      tabs: [
-                        Tab(
-                          icon: Icon(Icons.grid_3x3, color: Colors.black),
-                        ),
-                        Tab(
-                          icon: Icon(Icons.favorite, color: Colors.red),
-                        ),
-                      ],
                     ),
-
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          FirstTab(),
-                          SecondTab(),
-                        ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5, left: 5),
+                      child: Text(
+                        "Madhav Arora",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     )
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 1, top: 15),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "77",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Posts",
+                        style: TextStyle(
+                          fontSize: 13,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 26, top: 15),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "452",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Followers",
+                        style: TextStyle(
+                          fontSize: 13,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 26, top: 15),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "428",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "Following",
+                        style: TextStyle(
+                          fontSize: 13,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+
+            // Center(
+            Padding(
+              padding: const EdgeInsets.only(left: 20, top: 10),
+              child: Text(
+                "Whenever you go no matter what the wheather always bring you'r own sunshine",
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: MaterialButton(
+                color: Colors.grey[100],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                onPressed: () async {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => EditProfile()));
+                },
+                // },
+                child: Text("Edit Profile"),
+                // color: Colors.red,
+              ),
+            ),
+
+            Expanded(
+                child: Column(
+              children: [
+                TabBar(
+                  indicatorColor: Colors.redAccent,
+                  tabs: [
+                    Tab(
+                      icon: Icon(Icons.grid_3x3, color: Colors.black),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.favorite, color: Colors.red),
+                    ),
+                  ],
+                ),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      FirstTab(),
+                      SecondTab(),
+                    ],
+                  ),
                 )
-            )
+              ],
+            ))
           ],
         ),
       ),

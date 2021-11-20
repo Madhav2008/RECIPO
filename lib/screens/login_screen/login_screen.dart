@@ -5,6 +5,7 @@ import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
 import 'package:Foodybite/screens/register_screen/register_screen.dart';
 import 'package:Foodybite/widgets/text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -29,8 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
       });
     });
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      // resizeToAvoidBottomPadding: false,
       body: SingleChildScrollView(
         child: AnimatedOpacity(
           opacity: _visible ? 1.0 : 0.0,
@@ -59,11 +58,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 100,
                     ),
                   ),
-                  // Image.network(
-                  //     "https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo3Recipo.png",
-                  //     width: 130,
-                  //     height: 130,
-                  // ),
                   Text(
                     'Recipo',
                     style: TextStyle(
@@ -148,37 +142,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 40,
                   ),
-                  // Container(
-                  //   width: MediaQuery.of(context).size.width * .6,
-                  //   child: Container(
-                  //     decoration: BoxDecoration(
-                  //       gradient: LinearGradient(
-                  //         colors: [
-                  //           Color.fromRGBO(255, 138, 120, 1),
-                  //           Color.fromRGBO(255, 114, 117, 1),
-                  //           Color.fromRGBO(255, 63, 111, 1),
-                  //         ],
-                  //         begin: Alignment.centerLeft,
-                  //         end: Alignment.centerRight,
-                  //       ),
-                  //       borderRadius: BorderRadius.circular(40),
-                  //     ),
-                  //     child: RaisedButton(
-                  //       child: Text('Login'),
-                  //       color: Colors.transparent,
-                  //       onPressed: () async {
-                  //         authService.signInWithEmailAndPassword(emailController.text,passwordController.text).then((auth)
-                  //         {
-                  //           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Navigation()));
-                  //         }).catchError((error){
-                  //           showDialog(context: context,
-                  //               builder: (con) {
-                  //                 return AlertDialog(title: Text("Error"),content: Text(error.toString()),);
-                  //               } );
-                  //         });
-                  //       },
-                  //     ),
-                  //   ),
                   Center(
                     child: GestureDetector(
                       onTap: () async {
@@ -190,6 +153,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Navigation()));
+                          Fluttertoast.showToast(
+                              msg: "Login Successfully!!",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM);
                         }).catchError((error) {
                           showDialog(
                               context: context,
@@ -210,7 +177,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  // ),
                   SizedBox(
                     height: 30,
                   ),

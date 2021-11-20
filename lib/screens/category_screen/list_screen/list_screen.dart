@@ -1,4 +1,4 @@
-import 'package:Foodybite/models/category.dart';
+import 'package:Foodybite/screens/category_screen/models/category.dart';
 import 'package:Foodybite/screens/category_screen/widgets/custom_app_bar.dart';
 import 'package:Foodybite/widgets/card.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +42,7 @@ class _ListScreenState extends State<ListScreen> {
                           image: widget.category.imageUrl,
                           about: 'Lorem Ipsum is simply dummy text',
                           size: MediaQuery.of(context).size.width * 0.91,
-                          onPress: ()async{
+                          onPress: (){
                             Navigator.pushNamed(context, '/DetailScreen');
                           }),
                     );

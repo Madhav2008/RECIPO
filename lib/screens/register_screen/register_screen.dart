@@ -5,6 +5,7 @@ import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
 import 'package:Foodybite/widgets/text_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -144,6 +145,10 @@ class RegisterScreen extends StatelessWidget {
                   await authService.createUserWithEmailAndPassword(
                           emailController.text, passwordController.text).then((value) {
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Navigation()));
+                        Fluttertoast.showToast(
+                            msg: "User Registered Successfully!!",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM);
                       }).catchError((error){
                         showDialog(context: context,
                             builder: (con) {

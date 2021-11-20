@@ -50,7 +50,7 @@ class SearchScreen extends StatelessWidget {
                           image: "assets/images/Register.png",
                           about: 'Lorem Ipsum is simply dummy text',
                           size: MediaQuery.of(context).size.width * 0.91,
-                          onPress: ()async{
+                          onPress: (){
                             Navigator.pushNamed(context, '/DetailScreen');
                           }),
                     );

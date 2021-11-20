@@ -52,14 +52,14 @@ class ViewAllRecentRecipesScreen extends StatelessWidget {
                         vertical: 20.0,
                       ),
                       child: StyleCard(
-                        rate: '🌟 4.5',
+                        rate: '10',
                         title: 'Happy Bones',
                         isOpen: 'OPEN',
                         category: 'Italian',
                         image: 'assets/images/Login.png',
                         about: 'Lorem Ipsum is simply dummy text',
                         size: MediaQuery.of(context).size.width * 0.91,
-                        onPress: ()async{
+                        onPress: (){
                           Navigator.pushNamed(context, '/DetailScreen');
                         },
                       ),

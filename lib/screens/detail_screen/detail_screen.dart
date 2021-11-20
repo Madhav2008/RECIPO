@@ -68,7 +68,6 @@ class DetailScreen extends StatelessWidget {
                               iconSize: 30,
                               onPressed: () {},
                             )
-                            // LikeButton()
                           ],
                         ),
                         Text(

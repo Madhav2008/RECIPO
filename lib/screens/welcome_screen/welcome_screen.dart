@@ -77,7 +77,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                           ),
                         ),
-                        // ),
                         DescriptionTextWidget(
                           size: size,
                           index: index,
@@ -96,16 +95,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: Image.network(
                     'https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo4Recipo.png',
                     width: 120,
-                    height: 120,
-                    // child: Text(
-                    //   'Recipo',
-                    // style: TextStyle(
-                    //   color: Colors.white,
-                    //   fontSize: size.width * 0.09,
-                    //   fontWeight: FontWeight.bold,
-                    //   fontStyle: FontStyle.italic,
-                    // ),
-                    // ),
                   ),
                 ),
               ),
@@ -129,7 +118,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         'Skip',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: size.width * 0.05,
+                          fontSize: size.width * 0.06,
                         ),
                       ),
                     ),

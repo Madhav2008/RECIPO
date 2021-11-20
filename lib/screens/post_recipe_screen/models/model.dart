@@ -7,7 +7,6 @@ class Food {
   String userUuidOfPost;
   Timestamp createdAt;
 
-  //User details
   String userName;
   String profilePictureOfUser;
 

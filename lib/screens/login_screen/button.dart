@@ -11,9 +11,6 @@ class Buttons extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            // Color.fromRGBO(255, 138, 120, 1),
-            // Color.fromRGBO(255, 114, 117, 1),
-            // Color.fromRGBO(255, 63, 111, 1),
             Colors.redAccent,
             Color.fromRGBO(226, 55, 68, 1.0),
             Color.fromRGBO(226, 55, 68, 0.80),

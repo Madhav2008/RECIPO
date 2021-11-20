@@ -1,4 +1,4 @@
-import 'package:Foodybite/models/category.dart';
+import 'package:Foodybite/screens/category_screen/models/category.dart';
 import 'package:Foodybite/screens/category_screen/category_list_screen/category_list_screen.dart';
 import 'package:Foodybite/screens/category_screen/list_screen/list_screen.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +29,7 @@ class CategoryScreen extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
         elevation: 0.0,
       ),
       body: ListView.builder(

@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
       ],
        child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        // theme: ThemeData(brightness: Brightness.dark),
         title: 'Recipo',
         initialRoute: '/',
         routes: {
