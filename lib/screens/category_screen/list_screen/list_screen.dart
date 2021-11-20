@@ -35,14 +35,14 @@ class _ListScreenState extends State<ListScreen> {
                         vertical: 15.0,
                       ),
                       child: StyleCard(
-                          rate: '🌟 4.5',
+                          rate: '10',
                           title: 'Happy Bones',
                           isOpen: 'OPEN',
                           category: widget.category.name,
                           image: widget.category.imageUrl,
                           about: 'Lorem Ipsum is simply dummy text',
                           size: MediaQuery.of(context).size.width * 0.91,
-                          onPress: () {
+                          onPress: ()async{
                             Navigator.pushNamed(context, '/DetailScreen');
                           }),
                     );

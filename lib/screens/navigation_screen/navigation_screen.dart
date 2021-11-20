@@ -1,8 +1,8 @@
 import 'package:Foodybite/screens/category_screen/category_screen.dart';
-import 'package:Foodybite/screens/favorites_screen/favorites_screen.dart';
 import 'package:Foodybite/screens/home_screen/home_screen.dart';
 import 'package:Foodybite/screens/post_recipe_screen/post_recipe_screen.dart';
 import 'package:Foodybite/screens/profile_screen/profile_screen.dart';
+import 'package:Foodybite/screens/search_screen/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -14,7 +14,7 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  final List<Widget>_tabItems = [HomeScreen(), CategoryScreen(), PostRecipeScreen(), FavoritesScreen(), ProfileScreen()];
+  final List<Widget>_tabItems = [HomeScreen(), CategoryScreen(), PostRecipeScreen(), SearchScreen(), ProfileScreen()];
   int _page = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
@@ -41,7 +41,7 @@ class _NavigationState extends State<Navigation> {
             color: (_page == 2)?Colors.redAccent:Colors.white
           ),
           Icon(
-            Icons.favorite_sharp,
+            Icons.search_sharp,
             size: 30,
             color: (_page == 3)?Colors.redAccent:Colors.white
           ),

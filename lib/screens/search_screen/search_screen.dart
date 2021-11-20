@@ -2,15 +2,15 @@ import 'package:Foodybite/widgets/card.dart';
 import 'package:Foodybite/widgets/search.dart';
 import 'package:flutter/material.dart';
 
-class ViewAllRecentRecipesScreen extends StatelessWidget {
-  const ViewAllRecentRecipesScreen({Key key}) : super(key: key);
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Recent Recipes',
+          'Search Recipes',
           style: TextStyle(
             color: Colors.black,
           ),
@@ -19,15 +19,6 @@ class ViewAllRecentRecipesScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
       body: Center(
         child: Column(
@@ -52,17 +43,16 @@ class ViewAllRecentRecipesScreen extends StatelessWidget {
                         vertical: 20.0,
                       ),
                       child: StyleCard(
-                        rate: '🌟 4.5',
-                        title: 'Happy Bones',
-                        isOpen: 'OPEN',
-                        category: 'Italian',
-                        image: 'assets/images/Login.png',
-                        about: 'Lorem Ipsum is simply dummy text',
-                        size: MediaQuery.of(context).size.width * 0.91,
-                        onPress: ()async{
-                          Navigator.pushNamed(context, '/DetailScreen');
-                        },
-                      ),
+                          rate: '10',
+                          title: 'Happy Bones',
+                          isOpen: 'OPEN',
+                          category: 'Italian',
+                          image: "assets/images/Register.png",
+                          about: 'Lorem Ipsum is simply dummy text',
+                          size: MediaQuery.of(context).size.width * 0.91,
+                          onPress: ()async{
+                            Navigator.pushNamed(context, '/DetailScreen');
+                          }),
                     );
                   },
                 ),

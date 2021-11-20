@@ -56,22 +56,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          width: double.infinity,
-                          height: size.height * 0.4,
-                          child: Image.network(
-                            'https://raw.githubusercontent.com/Madhav2008/App-Assets/main/RecipoLogo.png',
-                          // child: Image.asset(
-                          //   onboardong[index].imageAsset,
-                            width: size.width * 0.7,
+                        ClipRRect(
+                          child: Image.asset(
+                            onboardong[index].imageAsset,
+                            width: size.width * 0.6,
                           ),
+                          borderRadius: BorderRadius.circular(30.0),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                             vertical: 20,
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 30.0, right: 10.0),
+                            padding:
+                                const EdgeInsets.only(left: 50.0, right: 10.0),
                             child: TitleTextWidget(
                               size: size,
                               index: index,
@@ -90,9 +88,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   );
                 },
               ),
-               Padding(
-                 padding: const EdgeInsets.only(top: 2.0, left: 18.0, bottom: 18.0),
-                 child: Align(
+              Padding(
+                padding:
+                    const EdgeInsets.only(top: 2.0, left: 18.0, bottom: 18.0),
+                child: Align(
                   alignment: Alignment.topLeft,
                   child: Image.network(
                     'https://raw.githubusercontent.com/Madhav2008/App-Assets/main/Logo4Recipo.png',
@@ -106,10 +105,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     //   fontWeight: FontWeight.bold,
                     //   fontStyle: FontStyle.italic,
                     // ),
-                  // ),
+                    // ),
                   ),
+                ),
               ),
-               ),
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.05,
@@ -137,7 +136,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Row(
                       children: List.generate(
                         onboardong.length,
-                            (index) => AnimatedContainer(
+                        (index) => AnimatedContainer(
                           duration: const Duration(
                             milliseconds: 800,
                           ),
@@ -169,8 +168,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       },
                       child: Icon(
                         selectedPage == 2
-                        ? Icons.arrow_forward_ios
-                        : Icons.arrow_forward_sharp,
+                            ? Icons.arrow_forward_ios
+                            : Icons.arrow_forward_sharp,
                         color: Colors.white,
                         size: 30,
                       ),

@@ -18,22 +18,6 @@ class HomeScreen extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        // title: GradientText(
-        //   "Recipo",
-        //   gradient: LinearGradient(
-        //     colors: [
-        //       Colors.white,
-        //       Colors.white,
-        //     ],
-        //     begin: Alignment.centerLeft,
-        //     end: Alignment.centerRight,
-        //   ),
-        //   style: TextStyle(
-        //     fontSize: 35,
-        //     fontFamily: 'MuseoModerno',
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        // ),
         title: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Image.network(
@@ -64,74 +48,52 @@ class HomeScreen extends StatefulWidget {
       body: ListView(
         children: <Widget>[
           HomeScreenTop(),
-          homeScreenBottom,
+          // homeScreenBottom,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Text("Recent Recipes",
+                    style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700)),
+                Spacer(),
+                Builder(
+                  builder: (BuildContext context) => TextSimpleButton(
+                    title: "View All",
+                    colors: Colors.lightBlue,
+                    onPress: () async{
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ViewAllRecentRecipesScreen()
+                          )
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(
             horizontal: 19.0,
             vertical: 15.0,
           ),
           child: StyleCard(
-            rate: '🌟 4.5',
+            rate: '10',
             title: 'Happy Bones',
             isOpen: 'OPEN',
             category: 'Italian',
             image: "assets/images/Register.png",
             about: 'Lorem Ipsum is simply dummy text',
             size: MediaQuery.of(context).size.width * 0.91,
-            onPress: () {
+            onPress: ()async{
               Navigator.pushNamed(context, '/DetailScreen');
-            }),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 19.0,
-              vertical: 15.0,
+            }
             ),
-            child: StyleCard(
-                rate: '🌟 4.5',
-                title: 'Happy Bones',
-                isOpen: 'OPEN',
-                category: 'Italian',
-                image: "assets/images/Register.png",
-                about: 'Lorem Ipsum is simply dummy text',
-                size: MediaQuery.of(context).size.width * 0.91,
-                onPress: () {
-                  Navigator.pushNamed(context, '/DetailScreen');
-                }),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 19.0,
-              vertical: 15.0,
-            ),
-            child: StyleCard(
-                rate: '🌟 4.5',
-                title: 'Happy Bones',
-                isOpen: 'OPEN',
-                category: 'Italian',
-                image: "assets/images/Register.png",
-                about: 'Lorem Ipsum is simply dummy text',
-                size: MediaQuery.of(context).size.width * 0.91,
-                onPress: () {
-                  Navigator.pushNamed(context, '/DetailScreen');
-                }),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 19.0,
-              vertical: 15.0,
-            ),
-            child: StyleCard(
-                rate: '🌟 4.5',
-                title: 'Happy Bones',
-                isOpen: 'OPEN',
-                category: 'Italian',
-                image: "assets/images/Register.png",
-                about: 'Lorem Ipsum is simply dummy text',
-                size: MediaQuery.of(context).size.width * 0.91,
-                onPress: () {
-                  Navigator.pushNamed(context, '/DetailScreen');
-                }),
           ),
         ],
       ),
@@ -404,13 +366,13 @@ final Widget homeScreenBottom = Column(
         ],
       ),
     ),
-    Container(
-      height: 210,
-      child: ListView(scrollDirection: Axis.horizontal, children: cityCards),
-    ),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-    ),
+    // Container(
+    //   height: 210,
+    //   child: ListView(scrollDirection: Axis.horizontal, children: cityCards),
+    // ),
+    // Padding(
+    //   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    // ),
     // Container(
     //   height: 210,
     //   child: ListView(scrollDirection: Axis.vertical, children: cityCards2),

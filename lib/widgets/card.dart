@@ -43,7 +43,7 @@ class StyleCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: 128,
+              top: 170,
               child: Container(
                 width: size,
                 height: MediaQuery.of(context).size.height * 0.1,
@@ -107,12 +107,21 @@ class StyleCard extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 15,
-              right: 20,
+                top: 3,
+                right: 28,
+                child: IconButton(
+                  icon: Icon(Icons.favorite_outline_sharp),
+                  color: Colors.redAccent,
+                  iconSize: 30,
+                  onPressed: () {},
+                )
+            ),
+            Positioned(
+              top: 17,
+              right: 0,
               child: SmallTextBox(
-                color2: Colors.white,
                 title: '$rate',
-                color: Colors.grey[700],
+                color: Colors.white,
               ),
             ),
           ],

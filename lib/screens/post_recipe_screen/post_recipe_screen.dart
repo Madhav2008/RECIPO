@@ -256,8 +256,6 @@
 //   }
 // }
 
-import 'package:Foodybite/auth/auth_services.dart';
-import 'package:Foodybite/screens/post_recipe_screen/button.dart';
 import 'package:Foodybite/screens/post_recipe_screen/model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -398,24 +396,14 @@ class _PostRecipeState extends State<PostRecipeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        title: Center(
-          child: GradientText(
-            "Post appetizing recipe",
-            gradient: LinearGradient(
-              colors: [
-                Colors.white,
-                Colors.white,
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ),
+        title: Text(
+            "Post Recipe",
             style: TextStyle(
               fontSize: 20,
               fontFamily: 'MuseoModerno',
-              // fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.bold
             ),
-          ),
-        ),
+            ),
         actions: [
           IconButton(
               onPressed: () async {
