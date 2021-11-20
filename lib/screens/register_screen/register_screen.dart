@@ -60,11 +60,11 @@ class RegisterScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
                         borderSide: const BorderSide(
-                            color: Colors.lightBlueAccent, width: 0.0),
+                            color: Colors.redAccent, width: 0.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Colors.lightBlueAccent, width: 0.0),
+                            color: Colors.redAccent, width: 0.0),
                       ),
                       prefixIcon: Icon(
                         Icons.supervised_user_circle_outlined,
@@ -88,11 +88,11 @@ class RegisterScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
                         borderSide: const BorderSide(
-                            color: Colors.lightBlueAccent, width: 0.0),
+                            color: Colors.redAccent, width: 0.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: Colors.lightBlueAccent, width: 0.0),
+                        BorderSide(color: Colors.redAccent, width: 0.0),
                       ),
                       prefixIcon: Icon(
                         Icons.mail,
@@ -117,11 +117,11 @@ class RegisterScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       enabledBorder: const OutlineInputBorder(
                         borderSide: const BorderSide(
-                            color: Colors.lightBlueAccent, width: 0.0),
+                            color: Colors.redAccent, width: 0.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                        BorderSide(color: Colors.lightBlueAccent, width: 0.0),
+                        BorderSide(color: Colors.redAccent, width: 0.0),
                       ),
                       prefixIcon: Icon(
                         Icons.lock,
@@ -158,7 +158,7 @@ class RegisterScreen extends StatelessWidget {
                       });
                 },
                 child: Container(
-                  width: MediaQuery.of(context).size.width*0.5,
+                  width: MediaQuery.of(context).size.width*0.58,
                   height: 50,
                   child: Buttons(
                     buttonText: 'Register',
@@ -182,7 +182,7 @@ class RegisterScreen extends StatelessWidget {
                     SizedBox(width: 5,),
                     TextSimpleButton(
                       title: 'Login',
-                      colors: Colors.blue,
+                      colors: Colors.redAccent,
                       onPress: () {
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                       },
@@ -193,37 +193,6 @@ class RegisterScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class CircleIconButton extends StatelessWidget {
-  const CircleIconButton({
-    Key key,
-    this.icon,
-    this.onPress,
-  }) : super(key: key);
-  final Icon icon;
-  final Function onPress;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 35,
-      height: 35,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: Colors.white,
-        ),
-      ),
-      child: IconButton(
-        icon: icon,
-        onPressed: () {
-          onPress();
-        },
       ),
     );
   }

@@ -75,11 +75,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide: const BorderSide(
-                              color: Colors.lightBlueAccent, width: 0.0),
+                              color: Colors.redAccent, width: 0.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: Colors.lightBlueAccent, width: 0.0),
+                              color: Colors.redAccent, width: 0.0),
                         ),
                         prefixIcon: Icon(
                           Icons.mail,
@@ -104,11 +104,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide: const BorderSide(
-                              color: Colors.lightBlueAccent, width: 0.0),
+                              color: Colors.redAccent, width: 0.0),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: Colors.lightBlueAccent, width: 0.0),
+                              color: Colors.redAccent, width: 0.0),
                         ),
                         prefixIcon: Icon(
                           Icons.lock,
@@ -130,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.only(left: 180),
                     child: TextSimpleButton(
                       title: 'Forget password?',
-                      colors: Colors.lightBlue,
+                      colors: Colors.redAccent,
                       onPress: () {
                         Navigator.push(
                             context,
@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextSimpleButton(
                         title: 'Register',
-                        colors: Colors.lightBlue,
+                        colors: Colors.redAccent,
                         onPress: () {
                           Navigator.pushReplacement(
                               context,

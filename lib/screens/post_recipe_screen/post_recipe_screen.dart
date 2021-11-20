@@ -5,10 +5,8 @@ import 'dart:io';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-
 import 'models/database.dart';
 import 'models/model.dart';
-import 'models/users.dart';
 
 class PostRecipeScreen extends StatefulWidget {
   @override
@@ -105,7 +103,6 @@ class _PostRecipeState extends State<PostRecipeScreen> {
   void saveData() {
     RecipeDatabase.addRecipe(
       userId: userId,
-      // userName: userName,
       title: titleController.text,
       about_recipe: aboutController.text,
       cooking_method: cookingMethodController.text,
@@ -127,14 +124,6 @@ class _PostRecipeState extends State<PostRecipeScreen> {
   final TextEditingController timeToCookController = TextEditingController();
 
   final userId = FirebaseAuth.instance.currentUser.uid;
-  final userName = FirebaseAuth.instance.currentUser.uid;
-  final userEmail = FirebaseAuth.instance.currentUser.uid;
-  final following = FirebaseAuth.instance.currentUser.uid;
-  final follower = FirebaseAuth.instance.currentUser.uid;
-  final like = FirebaseAuth.instance.currentUser.uid;
-  final imageUrl = FirebaseAuth.instance.currentUser.uid;
-  final bio = FirebaseAuth.instance.currentUser.uid;
-  final favourites = FirebaseAuth.instance.currentUser.uid;
 
   @override
   Widget build(BuildContext context) {
