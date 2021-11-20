@@ -18,10 +18,10 @@ class _PostRecipeState extends State<PostRecipeScreen> {
   File _imageFile;
   var _category = [
     'Italian Recipe',
-    'Maxican Recipe',
+    'Punjabi Recipe',
     'Chinese Recipe',
-    'Arabian Recipe',
-    'Thai Recipe'
+    'Gujarati Recipe',
+    'Bengali Recipe'
   ];
   var _currentItemSelected = 'Italian Recipe';
   String uploadedPath = "";
@@ -30,9 +30,7 @@ class _PostRecipeState extends State<PostRecipeScreen> {
     titleController.clear();
     aboutController.clear();
     cookingMethodController.clear();
-    caloriesController.clear();
     ingredientController.clear();
-    subIngregientController.clear();
     timeToCookController.clear();
     setState(() {
       _imageFile = null;
@@ -106,9 +104,7 @@ class _PostRecipeState extends State<PostRecipeScreen> {
       title: titleController.text,
       about_recipe: aboutController.text,
       cooking_method: cookingMethodController.text,
-      calorie: caloriesController.text,
       ingredient: ingredientController.text,
-      sub_ingredient: subIngregientController.text,
       time_to_cook: timeToCookController.text,
       image: uploadedPath,
       category: _currentItemSelected,
@@ -118,9 +114,7 @@ class _PostRecipeState extends State<PostRecipeScreen> {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController aboutController = TextEditingController();
   final TextEditingController cookingMethodController = TextEditingController();
-  final TextEditingController caloriesController = TextEditingController();
   final TextEditingController ingredientController = TextEditingController();
-  final TextEditingController subIngregientController = TextEditingController();
   final TextEditingController timeToCookController = TextEditingController();
 
   final userId = FirebaseAuth.instance.currentUser.uid;
@@ -316,35 +310,9 @@ class _PostRecipeState extends State<PostRecipeScreen> {
                         child: TextField(
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
-                          controller: caloriesController,
-                          decoration: InputDecoration(
-                            labelText: 'Calories',
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        child: TextField(
-                          keyboardType: TextInputType.multiline,
-                          maxLines: null,
                           controller: ingredientController,
                           decoration: InputDecoration(
                             labelText: 'Ingredients',
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        child: TextField(
-                          keyboardType: TextInputType.multiline,
-                          maxLines: null,
-                          controller: subIngregientController,
-                          decoration: InputDecoration(
-                            labelText: 'Sub-Ingredients',
                           ),
                         ),
                       ),

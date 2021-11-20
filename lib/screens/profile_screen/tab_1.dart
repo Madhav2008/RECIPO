@@ -15,10 +15,10 @@ class FirstTab extends StatelessWidget {
               child: Expanded(
                 child: Hero(
                   child: Container(
-                      child: RaisedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/DetailScreen');
-                        },
+                      // child: RaisedButton(
+                      //   onPressed: () {
+                      //     Navigator.pushNamed(context, '/DetailScreen');
+                      //   },
                         color: Colors.white,
                     child: ClipRRect(
                         child: Image.asset(
@@ -27,7 +27,7 @@ class FirstTab extends StatelessWidget {
                           // width: 100,
                         ),
                       borderRadius: BorderRadius.circular(20),
-                    ),
+                    // ),
                       ),
                   ),
                   tag: "assets/images/Register.png",

@@ -23,7 +23,7 @@ final List<Category> category = [
   ),
   Category(
       imageUrl: 'assets/images/Welcome.png',
-      name: 'Maxican',
+      name: 'Punjabi',
       color1: Colors.lightBlue,
       color2: Colors.purple
   ),
@@ -35,13 +35,13 @@ final List<Category> category = [
   ),
   Category(
       imageUrl: 'assets/images/cook.png',
-      name: 'Arabian',
+      name: 'Gujarati',
       color1: Colors.orange,
       color2: Colors.pink
   ),
   Category(
       imageUrl: 'assets/images/serve.png',
-      name: 'Thai',
+      name: 'Bengali',
       color1: Colors.lightBlue,
       color2: Colors.tealAccent
   ),
