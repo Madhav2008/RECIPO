@@ -1,6 +1,6 @@
 class User {
   final String uid;
-  final String email;
+  final String? email;
 
   User(this.uid, this.email);
 }

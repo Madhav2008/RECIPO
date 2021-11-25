@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Food {
-  String name;
-  String img;
-  String caption;
-  String userUuidOfPost;
-  Timestamp createdAt;
+  String? name;
+  String? img;
+  String? caption;
+  String? userUuidOfPost;
+  Timestamp? createdAt;
 
-  String userName;
-  String profilePictureOfUser;
+  String? userName;
+  String? profilePictureOfUser;
 
   Food();
 

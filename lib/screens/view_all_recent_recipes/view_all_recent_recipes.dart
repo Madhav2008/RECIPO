@@ -3,7 +3,7 @@ import 'package:Foodybite/widgets/search.dart';
 import 'package:flutter/material.dart';
 
 class ViewAllRecentRecipesScreen extends StatelessWidget {
-  const ViewAllRecentRecipesScreen({Key key}) : super(key: key);
+  const ViewAllRecentRecipesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class ViewAllRecentRecipesScreen extends StatelessWidget {
                         about: 'Lorem Ipsum is simply dummy text',
                         size: MediaQuery.of(context).size.width * 0.91,
                         onPress: (){
-                          Navigator.pushNamed(context, '/DetailScreen');
+                          // Navigator.pushNamed(context, '/DetailScreen');
                         },
                       ),
                     );

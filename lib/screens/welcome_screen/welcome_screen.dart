@@ -8,7 +8,7 @@ import 'model.dart';
 import 'title_text.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({Key key}) : super(key: key);
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();

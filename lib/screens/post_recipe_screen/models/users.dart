@@ -5,15 +5,12 @@ final CollectionReference _userCollection = _firestore.collection('users');
 
 class UserDatabase {
   static Future<void> addUser({
-    String userId,
-    String userName,
-    String userEmail,
-    String following,
-    String follower,
-    String like,
-    String imageUrl,
-    String bio,
-    String favourites,
+    required String userId,
+    required String userName,
+    required String userEmail,
+    required String contact,
+    required String bio,
+    required String img,
   }) async {
     DocumentReference documentReference =
     _userCollection.doc(userId).collection("userDetails").doc(DateTime.now().millisecondsSinceEpoch.toString());
@@ -22,12 +19,11 @@ class UserDatabase {
       "userId": userId,
       "userName": userName,
       "userEmail": userEmail,
+      "bio": bio,
       "following": 0,
       "follower": 0,
-      "like": 0,
-      "imageUrl": imageUrl,
-      "bio": bio,
-      "favourites": 0,
+      "contact": contact,
+      "img": img,
     };
     await documentReference
         .set(data)
@@ -35,17 +31,32 @@ class UserDatabase {
         .catchError((e) => print(e));
   }
 
+  static Future<void> addUserIandB({
+    required String bio,
+  }) async {
+    DocumentReference documentReference =
+    _userCollection.doc().collection("userDetails").doc();
+
+    Map<String, dynamic> data = <String, dynamic>{
+      "bio": bio,
+    };
+    await documentReference
+        .set(data)
+        .whenComplete(() => print("User Image and Bio added Successfully"))
+        .catchError((e) => print(e));
+  }
+
   static Future<void> updateUser({
-    String docId,
-    String userId,
-    String userName,
-    String userEmail,
-    String following,
-    String follower,
-    String like,
-    String imageUrl,
-    String bio,
-    String favourites,
+    required String docId,
+    required String userId,
+    required String userName,
+    required String userEmail,
+    required String following,
+    required String follower,
+    required String like,
+    required String imageUrl,
+    required String bio,
+    required String favourites,
   }) async {
     DocumentReference documentReference =
     _userCollection.doc(userId).collection("users").doc(docId);
@@ -67,16 +78,16 @@ class UserDatabase {
         .catchError((e) => print(e));
   }
 
-  static Stream<QuerySnapshot> readUsers() {
-    String userId;
-    CollectionReference collectionReference = _userCollection.doc(userId).collection('users');
+  static Stream<QuerySnapshot> readUsers(uid) {
+    String? userId = uid;
+    CollectionReference collectionReference = _userCollection.doc(userId).collection('userDetails');
     print(collectionReference);
     return collectionReference.snapshots();
   }
 
   static Future<void> deleteUser({
-    String docId,
-    String userId,
+    required String docId,
+    required String userId,
   }) async {
     DocumentReference documentReference =
     _userCollection.doc(userId).collection("users").doc(docId);

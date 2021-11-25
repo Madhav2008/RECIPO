@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class TitleTextWidget extends StatelessWidget {
   const TitleTextWidget({
-    Key key,
-    this.size,
-    this.index,
-    this.name,
+    Key? key,
+    required this.size,
+    required this.index,
+    required this.name,
   }) : super(key: key);
 
   final Size size;

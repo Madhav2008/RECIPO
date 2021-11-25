@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Search extends StatelessWidget {
   const Search({
-    Key key,
-    this.title,
-    this.icon,
+    Key? key,
+    required this.title,
+    required this.icon,
   }) : super(key: key);
   final String title;
   final Icon icon;

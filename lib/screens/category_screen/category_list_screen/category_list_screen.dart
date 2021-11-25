@@ -1,16 +1,69 @@
+// import 'package:flutter/material.dart';
+//
+// class CategoryList extends StatelessWidget {
+//   const CategoryList({
+//     Key? key,
+//     required this.title,
+//     required this.image,
+//     required this.onPress,
+//   }) : super(key: key);
+//   final String title, image;
+//   final Function onPress;
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: () {
+//         onPress();
+//       },
+//       child: Container(
+//         padding: EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 16.0),
+//         child: Material(
+//           elevation: 5.0,
+//           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+//           child: Stack(
+//             children: <Widget>[
+//               ClipRRect(
+//                   borderRadius: BorderRadius.circular(5.0),
+//                   child: Image.asset(image)),
+//
+//               Positioned(
+//                 bottom: 20.0,
+//                 child: Container(
+//                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+//                   color: Colors.black.withOpacity(0.7),
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     mainAxisAlignment: MainAxisAlignment.end,
+//                     children: <Widget>[
+//                       Text(title,
+//                           style: TextStyle(
+//                               color: Colors.white,
+//                               fontSize: 20.0,
+//                               fontWeight: FontWeight.bold
+//                           )
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {
   const CategoryList({
-    Key key,
-    this.title,
-    this.image,
-    this.color1,
-    this.color2,
-    this.onPress,
+    Key? key,
+    required this.title,
+    required this.image,
+    required this.onPress,
   }) : super(key: key);
   final String title, image;
-  final Color color1, color2;
   final Function onPress;
   @override
   Widget build(BuildContext context) {
@@ -18,48 +71,40 @@ class CategoryList extends StatelessWidget {
       onTap: () {
         onPress();
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10.0,
-          vertical: 10.0,
-        ),
-        child: Stack(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 1.0,
-              height: MediaQuery.of(context).size.height * 0.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0),
-                image: DecorationImage(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                ),
+      child: Container(
+        padding: EdgeInsets.only(left: 16.0, top: 8.0, right: 16.0, bottom: 16.0),
+        child: Material(
+          elevation: 5.0,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+          child: Stack(
+            children: <Widget>[
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: Image.network(image)
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15.0),
-                  gradient: LinearGradient(
-                    colors: [
-                      color1.withOpacity(0.7),
-                      color2.withOpacity(0.7),
+
+              Positioned(
+                bottom: 20.0,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  color: Colors.black.withOpacity(0.7),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text(title,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold
+                          )
+                      ),
                     ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                ),
-                child: Center(
-                  child: Text(
-                    '$title',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

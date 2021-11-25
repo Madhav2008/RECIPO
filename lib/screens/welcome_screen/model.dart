@@ -4,9 +4,9 @@ class OnboardingModel {
   final String description;
 
   OnboardingModel(
-      { this.description,
-        this.imageAsset,
-        this.title});
+      { required this.description,
+        required this.imageAsset,
+        required this.title});
 }
 
 List<OnboardingModel> onboardong = <OnboardingModel>[

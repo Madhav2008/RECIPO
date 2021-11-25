@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class ColumnText extends StatelessWidget {
   const ColumnText({
-    Key key,
-    this.title,
-    this.count,
+    Key? key,
+    required this.title,
+    required this.count,
   }) : super(key: key);
   final String title, count;
   @override

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class SmallTextBox extends StatelessWidget {
   const SmallTextBox({
-    Key key,
-    this.title,
-    this.color,
-    this.color2,
+    Key? key,
+    required this.title,
+    required this.color,
+    required this.color2,
   }) : super(key: key);
   final String title;
   final Color color, color2;

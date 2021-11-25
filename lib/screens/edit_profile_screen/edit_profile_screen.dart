@@ -14,18 +14,18 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
-  File _profileImageFile;
+  late File _profileImageFile;
 
   Future<void> _pickImage() async {
     final selected = await ImagePicker().getImage(source: ImageSource.gallery);
     setState(() {
-      _profileImageFile = File(selected.path);
+      _profileImageFile = File(selected!.path);
     });
   }
 
   void _clear() {
     setState(() {
-      _profileImageFile = null;
+      // _profileImageFile = null;
     });
   }
 

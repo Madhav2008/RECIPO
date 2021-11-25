@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class SmallTag extends StatelessWidget {
   const SmallTag({
-    Key key,
-    this.title,
-    this.color,
+    Key? key,
+    required this.title,
+    required this.color,
   }) : super(key: key);
   final String title;
   final Color color;

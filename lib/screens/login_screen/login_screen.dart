@@ -5,11 +5,11 @@ import 'package:Foodybite/screens/navigation_screen/navigation_screen.dart';
 import 'package:Foodybite/screens/register_screen/register_screen.dart';
 import 'package:Foodybite/widgets/text_button.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -153,10 +153,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => Navigation()));
-                          Fluttertoast.showToast(
-                              msg: "Login Successfully!!",
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.BOTTOM);
+                          // Fluttertoast.showToast(
+                          //     msg: "Login Successfully!!",
+                          //     toastLength: Toast.LENGTH_SHORT,
+                          //     gravity: ToastGravity.BOTTOM);
                         }).catchError((error) {
                           showDialog(
                               context: context,

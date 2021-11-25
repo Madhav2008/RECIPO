@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class DescriptionTextWidget extends StatelessWidget {
   const DescriptionTextWidget({
-    Key key,
-    this.size,
-    this.index,
-    this.description,
+    Key? key,
+    required this.size,
+    required this.index,
+    required this.description,
   }) : super(key: key);
 
   final Size size;

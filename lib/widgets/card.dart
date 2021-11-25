@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 
 class StyleCard extends StatelessWidget {
   const StyleCard({
-    Key key,
-    this.image,
-    this.title,
-    this.isOpen,
-    this.rate,
-    this.category,
-    this.about,
-    this.onPress,
-    this.size,
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.isOpen,
+    required this.rate,
+    required this.category,
+    required this.about,
+    required this.onPress,
+    required this.size,
   }) : super(key: key);
   final String image, title, isOpen, rate, category, about;
   final double size;
@@ -38,7 +38,7 @@ class StyleCard extends StatelessWidget {
         ),
       ),
       child: GestureDetector(
-        onTap: onPress,
+        onTap: onPress(),
         child: Stack(
           children: <Widget>[
             Positioned(
@@ -71,7 +71,7 @@ class StyleCard extends StatelessWidget {
                           SizedBox(width: 15.0),
                           SmallTag(
                             title: '$category',
-                            color: Colors.pink[200],
+                            color: Colors.pink[200]!,
                           ),
                         ],
                       ),
@@ -93,7 +93,7 @@ class StyleCard extends StatelessWidget {
               child: SmallTextBox(
                 color2: Colors.white,
                 title: '$isOpen',
-                color: Colors.greenAccent[700],
+                color: Colors.greenAccent[700]!,
               ),
             ),
             Positioned(
@@ -112,6 +112,7 @@ class StyleCard extends StatelessWidget {
               child: SmallTextBox(
                 title: '$rate',
                 color: Colors.white,
+                color2: Colors.white,
               ),
             ),
           ],

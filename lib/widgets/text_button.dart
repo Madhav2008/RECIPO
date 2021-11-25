@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class TextSimpleButton extends StatelessWidget {
   const TextSimpleButton({
-    Key key,
-    this.title,
-    this.onPress,
-    this.colors,
+    Key? key,
+    required this.title,
+    required this.onPress,
+    required this.colors,
   }) : super(key: key);
   final String title;
   final Color colors;

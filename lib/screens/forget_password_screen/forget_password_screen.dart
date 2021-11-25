@@ -1,9 +1,9 @@
 import 'package:Foodybite/screens/login_screen/button.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
 
 class ForgetScreen extends StatefulWidget {
-  const ForgetScreen({Key key}) : super(key: key);
+  const ForgetScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -108,11 +108,11 @@ class _LoginScreenState extends State<ForgetScreen> {
                   child: GestureDetector(
                     onTap: () async {
                       // send();
-                      Fluttertoast.showToast(
-                        msg: "Mail Sent Successfully!!",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                      );
+                      // Fluttertoast.showToast(
+                      //   msg: "Mail Sent Successfully!!",
+                      //   toastLength: Toast.LENGTH_SHORT,
+                      //   gravity: ToastGravity.BOTTOM,
+                      // );
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.5,

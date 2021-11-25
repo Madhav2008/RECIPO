@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -28,10 +28,12 @@ dependencies:
   flutter_rating_bar: ^3.0.1+1
   flutter_staggered_grid_view: ^0.3.2
   full_screen_image: ^1.0.2
-  gradient_text: ^1.0.2
-  shared_preferences: ^0.5.6
+#  gradient_text: ^1.0.2
+  wakelock:
+  shared_preferences:
   firebase_core: ^1.8.0
   animated_splash_screen: ^1.1.0
+  connectivity: ^3.0.6
   fluttertoast:
   flip_card:
   firebase_storage:

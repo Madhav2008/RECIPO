@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
-    Key key,
+    Key? key,
     this.title,
     this.image,
     this.color1,
     this.color2,
   }) : super(key: key);
-  final String title, image;
-  final Color color1, color2;
+  final String? title, image;
+  final Color? color1, color2;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -19,7 +19,7 @@ class CustomAppbar extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(image),
+              image: AssetImage(image!),
               fit: BoxFit.cover,
             ),
           ),
@@ -27,8 +27,8 @@ class CustomAppbar extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  color1.withOpacity(0.7),
-                  color2.withOpacity(0.7),
+                  color1!.withOpacity(0.7),
+                  color2!.withOpacity(0.7),
                 ],
               ),
             ),
